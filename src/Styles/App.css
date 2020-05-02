@@ -1,0 +1,10 @@
+.only-mobile{
+    display: none !important;
+}
+@media only screen 
+  and (max-device-width: 580px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .only-mobile{
+        display: inherit;
+    }
+}

@@ -1,5 +1,29 @@
+.logo-nav > img {
+  height: 34px;
+}
 .logo-nav {
-  padding-left: 4em;
-  border-right: solid 1px gray;
-  flex: 1;
+  border-right: solid 1px #d4d8dd;
+  padding: 0pt 26pt 0 4em;
+  width: 67pt;
+  max-height: 33px;
+  /* flex: 1; */
+}
+.MuiToolbar-root {
+  align-items: unset;
+}
+.nav-middle-menu {
+  flex: 6 1;
+  padding-left: 2em;
+}
+.nav-middle-menu > span {
+  color: gray;
+  font-size: 14px;
+}
+.nav-middle-menu > b {
+  color: #353e54;
+  font-size: 14px;
+  font-weight: 600;
+}
+.nav-middle-menu > b >svg{
+  margin-left: 8px;
 }
