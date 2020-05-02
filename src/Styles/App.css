@@ -1,10 +1,43 @@
-.only-mobile{
-    display: none !important;
+.container-home{
+    background-image: url("../Assets/textures/backgound-home.png");
 }
-@media only screen 
-  and (max-device-width: 580px)
-  and (-webkit-min-device-pixel-ratio: 2) {
-    .only-mobile{
-        display: inherit;
-    }
+div, body, section{
+    height: 100%;
+}
+.title{
+    font-size: 28px;
+}
+.white{
+    color: white;
+}
+.b{
+    font-weight: bold;
+}
+.btn-success{
+    background-color: #56B05B !important;
+    border: none !important;
+    padding: 8px 18px !important;
+    height: unset !important;
+    color: white !important;
+}
+.btn-default{
+    background: transparent !important;
+    padding: 8px 18px !important;
+    height: unset !important;
+    color: white !important;
+}
+.btn-icon{
+    position: relative;
+    top: 2px;
+    left: 4px;
+}
+.icon{
+    max-height: 22px;
+}
+hr.line{
+    margin: 0;
+    border-color: #D4D8DD;
+}
+h3{
+    font-size: 18px !important;
 }
