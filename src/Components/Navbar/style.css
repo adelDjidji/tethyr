@@ -3,13 +3,14 @@
 }
 .logo-nav {
   border-right: solid 1px #d4d8dd;
-  padding: 0pt 26pt 0 4em;
+  /* padding: 0pt 26pt 0 4em;
   width: 67pt;
-  max-height: 33px;
+  max-height: 33px; */
   /* flex: 1; */
 }
-.MuiToolbar-root {
-  align-items: unset;
+.nav-header{
+  background-color: white;
+  padding: 0;
 }
 .nav-middle-menu {
   flex: 6 1;
