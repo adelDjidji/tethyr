@@ -32,7 +32,7 @@
   font-size: 14px;
 }
 .nav-middle-menu > b {
-  color: #353e54;
+  color: #353e54 !important;
   font-size: 14px;
   font-weight: 600;
 }
@@ -41,12 +41,3 @@
 }
 
 
-/* Button style **/
-.btn-default{
-  padding: 8px 13px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-.btn-default:hover{
-    background: #80808024;
-}

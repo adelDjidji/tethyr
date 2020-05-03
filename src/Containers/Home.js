@@ -1,6 +1,7 @@
 import React from "react";
 import { Layout, Row, Col, Button } from "antd";
 import Icon from "../Components/Icon/Icon";
+import Card from "../Components/Card/Card";
 
 const { Content } = Layout;
 
@@ -12,11 +13,11 @@ export default function Home() {
         <Col span={18}>
           <h1 className="title white b">Foreign Press (Live Streams) C-19</h1>
         </Col>
-        <Col span={6} style={{textAlign: 'right'}}>
-          <Button className="btn-default" style={{ marginRight: 16}}>
-          Open
+        <Col span={6} style={{ textAlign: "right" }}>
+          <Button className="btn-default" style={{ marginRight: 16 }}>
+            Open
             <svg
-            className="btn-icon"
+              className="btn-icon"
               width="15"
               height="15"
               viewBox="0 0 15 15"
@@ -28,20 +29,24 @@ export default function Home() {
                 fill="white"
               />
             </svg>
-            
           </Button>
-          <Button type="primary" className="btn-success"> <Icon name="plist__white_add" /> Add to playlist</Button>
+          <Button type="primary" className="btn-success">
+            {" "}
+            <Icon name="plist__white_add" /> Add to playlist
+          </Button>
         </Col>
       </Row>
-      <hr className="line"/>
-      <Row style={{marginTop:16}}>
+      <hr className="line" />
+      <Row style={{ marginTop: 16 }}>
         <Col span={12}>
-        <h3 className="white b">Last updates :</h3>
-          
+          <h3 className="white b">Last updates :</h3>
+          <Card
+           title="Trump gives Corona virus updates alongside White House task Force"
+           date="April 13, 2020"
+           image="news.png"
+           />
         </Col>
-        <Col span={12}>
-
-        </Col>
+        <Col span={12}></Col>
       </Row>
     </Content>
   );
