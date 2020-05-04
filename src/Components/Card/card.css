@@ -5,6 +5,7 @@
     border: 1px #d4d8dd;
     padding-bottom: 6px!important;
     box-shadow: 1px 1px 3px #06060685 !important;
+    margin-top: 16px !important;
 }
 .ant-card:hover{
     box-shadow: 1px 7px 11px #06060685 !important;

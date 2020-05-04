@@ -55,4 +55,17 @@ hr.line{
 }
 h3{
     font-size: 18px !important;
+    margin-bottom: 8px !important;
+}
+.left-col{
+    padding-right: 10px !important;
+}
+.right-col{
+    padding-left: 10px !important;
+}
+.list-authors, .list-hashtags{
+    display: flex;
+}
+section.section{
+    margin-bottom: 24px !important;
 }
