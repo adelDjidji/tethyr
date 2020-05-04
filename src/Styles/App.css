@@ -21,6 +21,12 @@ div, body, section{
     height: unset !important;
     color: white !important;
 }
+.btn-outlined{
+    background-color: transparent !important;
+    padding: 8px 18px !important;
+    height: unset !important;
+    color: white !important;
+}
 .btn-default{
     background: transparent !important;
     padding: 8px 13px;

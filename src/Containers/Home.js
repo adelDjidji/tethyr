@@ -16,7 +16,7 @@ export default function Home() {
           <h1 className="title white b">Foreign Press (Live Streams) C-19</h1>
         </Col>
         <Col span={6} style={{ textAlign: "right" }}>
-          <Button className="btn-default" style={{ marginRight: 16 }}>
+          <Button className="btn-outlined" style={{ marginRight: 16 }}>
             Open
             <svg
               className="btn-icon"
