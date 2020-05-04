@@ -1,0 +1,43 @@
+.logo-nav > img {
+  height: 34px;
+}
+.logo-nav {
+  border-right: solid 1px #d4d8dd;
+  text-align: right;
+    padding-right: 24pt !important;
+    height: 56px;
+    line-height: 56px;
+}
+.nav-header{
+  background-color: white !important;
+  padding: 0;
+  box-shadow: 0px, 3px  rgba(39, 47, 58, 0.2247);
+}
+.nav-header .ant-row{
+  height: 56px;
+  line-height: 56px;
+}
+.ant-layout-header {
+  height: 56px !important;
+  padding: 0 50px;
+  line-height: 56px;
+  box-shadow: 1px 1px 4px rgba(39, 47, 58, 0.2247);
+  z-index: 1;
+}
+.nav-middle-menu {
+  padding-left: 2em;
+}
+.nav-middle-menu > span {
+  color: gray;
+  font-size: 14px;
+}
+.nav-middle-menu > b {
+  color: #353e54 !important;
+  font-size: 14px;
+  font-weight: 600;
+}
+.nav-middle-menu > b >svg{
+  margin-left: 8px;
+}
+
+
