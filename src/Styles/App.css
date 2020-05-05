@@ -1,5 +1,10 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway);
 .container-home{
     background-image: url("../Assets/textures/backgound-home.png");
+    background-size: cover;
+}
+.container{
+    padding: 30px 75px;
 }
 div, body, section{
     /* height: 100%; */
@@ -47,6 +52,8 @@ div, body, section{
     top: 2px;
     left: 4px;
 }
+
+
 .icon{
     max-height: 22px;
 }
@@ -55,9 +62,11 @@ div, body, section{
     vertical-align: middle;
     margin-bottom: 2.4px;
 }
-hr.line{
+hr.line, .hr{
     margin: 0;
     border-color: #D4D8DD;
+    margin-block-end: 8px;
+    margin-block-start: 8px;
 }
 h3{
     font-size: 18px !important;
@@ -70,8 +79,32 @@ h3{
     padding-left: 10px !important;
 }
 .list-authors, .list-hashtags{
-    display: flex;
+    display: flex !important;
+    flex-wrap: wrap;
 }
 section.section{
     margin-bottom: 24px !important;
+}
+span.hashtag {
+    font-size: 18px;
+    color: rgba(255,255,255,0.65);
+    margin-right: 19px;
+}
+.L-1{
+    line-height: 1 !important;
+}
+.center{
+    text-align: center;
+}
+.list-authors-cards{
+    margin-top: 16px;
+}
+.p-content{
+    display: contents !important;
+}
+.btn-open img.icon{
+    margin-left: 8px;
+}
+.btn-add-playlist img.icon{
+    margin-right: 12px;
 }

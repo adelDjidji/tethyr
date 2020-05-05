@@ -40,6 +40,10 @@
     text-align: right;
     padding-right: 10px !important;
 }
+.card-image img{
+    width: 100%;
+    margin-bottom: 16px;
+}
 .card-footer{
     text-align: right;
     margin-top: 4px;

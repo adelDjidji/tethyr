@@ -1,7 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Layout } from "antd";
-import "./Styles/App.css";
+import "./Styles/App.min.css";
+import "./Styles/respo.min.css";
+
 import Home from "./Containers/Home";
 
 import Navbar from "./Components/Navbar/index";

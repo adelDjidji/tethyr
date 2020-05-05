@@ -4,43 +4,40 @@ import Icon from "../Components/Icon/Icon";
 import Card from "../Components/Card/Card";
 import Author from "../Components/Author/Author";
 import AuthorCard from "../Components/AuthorCard/AuthorCard";
+import Caroussel from "../Components/Caroussel/Caroussel";
 
 const { Content } = Layout;
 
 export default function Home() {
   return (
-    <Content className="container-home" style={{ padding: "30px 75px" }}>
-      <Row>
-        <Col></Col>
-        <Col span={18}>
-          <h1 className="title white b">Foreign Press (Live Streams) C-19</h1>
+    <Content className="container container-home">
+      <Row >
+        <Col xs={24} sm={24} md={24} lg={16} xl={18}>
+          <h1 className="title white b L-1">
+            Foreign Press (Live Streams) C-19
+          </h1>
         </Col>
-        <Col span={6} style={{ textAlign: "right" }}>
-          <Button className="btn-outlined" style={{ marginRight: 16 }}>
+        <Col
+          xs={24}
+          sm={24}
+          md={24}
+          lg={8}
+          xl={6}
+          style={{ textAlign: "right" }}
+          className="btns-top-right"
+        >
+          <Button className="btn-outlined btn-open" style={{ marginRight: 16 }}>
             Open
-            <svg
-              className="btn-icon"
-              width="15"
-              height="15"
-              viewBox="0 0 15 15"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M3.00066 5.98381L6.37641 2.60806L6.37641 13.5827L7.65447 13.5827L7.65447 2.60806L11.0302 5.98381L11.9193 5.09472L7.01544 0.190858L2.11158 5.09472L3.00066 5.98381Z"
-                fill="white"
-              />
-            </svg>
+            <Icon name="arrow_up" extention="svg" />
           </Button>
-          <Button type="primary" className="btn-success">
-            {" "}
+          <Button type="primary btn-add-playlist" className="btn-success">
             <Icon name="plist__white_add" /> Add to playlist
           </Button>
         </Col>
       </Row>
       <hr className="line" />
-      <Row style={{ marginTop: 16 }}>
-        <Col className="left-col" span={12}>
+      <Row style={{ marginTop: 16 }} type="flex" justify="space-between">
+        <Col className="left-col" xs={24} sm={24} md={12} lg={11} xl={10}>
           <section className="section">
             <h3 className="white b">Last updates :</h3>
             <Card
@@ -60,33 +57,70 @@ export default function Home() {
               types and sizes.
             </p>
           </section>
-        </Col>
-        <Col className="right-col" span={12}>
+
           <section className="section">
+            <Caroussel />
+          </section>
+        </Col>
+
+        <Col className="right-col" xs={24} sm={24} md={12} lg={12} xl={12}>
+          <section className="">
             <h3 className="white b">Playlist Authors</h3>
-            <div className="list-authors">
+            <Row className="list-authors">
+              
               <Author className="white" name="name1" picture="person1.png" />
               <Author className="white" name="name2" picture="person2.png" />
               <Author className="white" name="name1" picture="person3.png" />
               <Author className="white" name="name1" picture="person4.png" />
               <Author className="white" name="name1" picture="person5.png" />
-            </div>
+              <Author className="white" name="name1" picture="person5.png" />
+              <Author className="white" name="name1" picture="person5.png" />
+            </Row>
           </section>
           <section className="section">
-          <h3 className="white b">Hashtags</h3>
+            <h3 className="white b">Hashtags</h3>
             <div className="list-hashtags">
               <span className="hashtag">#news</span>
               <span className="hashtag">#Covid</span>
               <span className="hashtag">#Bigresponse</span>
+              <span className="hashtag">#Bigresponse</span>
+              <span className="hashtag">#Bigresponse</span>
+              <span className="hashtag">#Bigresponse</span>
+              <span className="hashtag">#Bigresponse</span>
             </div>
-          
           </section>
           <section className="section">
-          <h3 className="white b">Video Authors</h3>
+            <h3 className="white b">Video Authors</h3>
             <div className="list-authors-cards">
-              <AuthorCard  />
+              <Col sm={24} lg={18}>
+                <AuthorCard
+                  AuthorName="Marvin Steward"
+                  AuthorImage="person1.png"
+                  youtube
+                />
+              </Col>
+              <Col sm={24} lg={18}>
+                <AuthorCard
+                  AuthorName="Ann Mckinney"
+                  AuthorImage="person2.png"
+                  viemeo
+                />
+              </Col>
+              <Col sm={24} lg={18}>
+                <AuthorCard
+                  AuthorName="Cammeron Howard"
+                  AuthorImage="person3.png"
+                  youtube
+                />
+              </Col>
+              <Col sm={24} lg={18}>
+                <AuthorCard
+                  AuthorName="Brooklyn Ngyen"
+                  AuthorImage="person4.png"
+                  viemeo
+                />
+              </Col>
             </div>
-          
           </section>
         </Col>
       </Row>

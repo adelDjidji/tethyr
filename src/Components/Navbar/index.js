@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Layout, Col, Row, Menu, Dropdown, Avatar } from "antd";
-
+import { Layout, Col, Row, Menu, Dropdown, Avatar, Drawer } from "antd";
+import Icon from "../Icon/Icon";
 import logo from "../../Assets/images/logo.png";
 import "./style.min.css";
 
-const { Header, Content } = Layout;
+const { Header } = Layout;
 
 const menu = (
   <Menu>
@@ -20,13 +20,38 @@ const menu = (
 );
 
 export default function ButtonAppBar() {
+  const [drawerVisible, setdrawerVisible] = useState(false)
+
+  const showDrawer = () => {
+    setdrawerVisible(true)
+  };
+
+  const onClose = () => {
+    setdrawerVisible(false)
+  };
   return (
     <Header className="nav-header">
+    <Drawer
+          title="Playlist & Group manager"
+          placement="left"
+          closable={false}
+          onClose={onClose}
+          visible={drawerVisible}
+        >
+        
+          <p>Option 1</p>
+          <p>Option 2</p>
+          <p>Option 3</p>
+          
+        </Drawer>
           <Row>
-            <Col span={4} className="logo-nav">
-              <img src={logo} alt="" />
+            <Col xs={4} sm={4} md={0} lg={0} xl={0} className="button-nav">
+              <Icon onClick={showDrawer} name="menu_icon" extention="svg" />
             </Col>
-            <Col span={18}>
+            <Col xs={16} sm={16} md={4} lg={4} xl={4} className="logo-nav">
+              <img src={logo} alt="logo tethyr" />
+            </Col>
+            <Col xs={0} sm={0} md={18} lg={18} xl={18}>
               <span className="nav-middle-menu">
                 <span> Menu: </span>
                 <Dropdown overlay={menu} trigger={["click"]}>
@@ -50,7 +75,7 @@ export default function ButtonAppBar() {
                 </Dropdown>
               </span>
             </Col>
-            <Col span={2}>
+            <Col xs={4} sm={4} md={2} lg={2} xl={2}>
             <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
             </Col>
             </Row>

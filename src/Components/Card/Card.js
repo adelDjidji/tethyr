@@ -13,13 +13,13 @@ export default function Card({ title = "", date = "", image = "" }) {
           style={{ height: 15.4, marginBottom: 3, marginRight: 3 }}
         />
         <b>WATCH LIVE :</b>
-        <span>{title}</span> - {date}
+        <p className="p-content">{title}</p> - {date}
       </span>
       <Antd.Row className="card-content">
-        <Antd.Col className="card-image" span={6}>
+        <Antd.Col className="card-image" sm={24} md={6}>
           <img src={img} alt="" />
         </Antd.Col>
-        <Antd.Col span={18}>
+        <Antd.Col sm={24} md={18}>
           <span>
             A card can be used to display content related to a single subject.
             The content can consist of multiple elements of varying types and
