@@ -3,19 +3,32 @@
 
 this project is to built UI components of the new designs. [see the target designs here](https://www.figma.com/file/Wi5KgD2HAc91MSNTaocjaQ/TETHYR_Redesign?node-id=0%3A1)
 
-Here is the instruction that you shall execute to run the project:
+### Installation
 
-### `npm install` 
-or 
-### `yarn install` 
+Clone the git repository : 
 
-to install the project dependencies.
+```sh
+$ git clone https://github.com/gridstream/uicomponents.git
+$ cd uicomponents
+```
 
+Install the dependencies and start the server:
 
-### `npm start`
+```sh
+$ npm install
+$ npm start
+```
+
 or
-### `yarn start` 
-to Run the project on you local machine.
 
-### `npm run build`
+```sh
+$ yarn
+$ yarn start
+```
+
+### building the project
+```sh
+$ npm run build
+```
+
 to build the project in one directory 'dist' in order to deploy it.
