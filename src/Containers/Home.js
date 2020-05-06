@@ -37,7 +37,7 @@ export default function Home() {
       </Row>
       <hr className="line" />
       <Row style={{ marginTop: 16 }} type="flex" justify="space-between">
-        <Col className="left-col" xs={24} sm={24} md={12} lg={11} xl={10}>
+        <Col className="left-col" xs={24} sm={24} md={12} lg={11} xl={12}>
           <section className="section">
             <h3 className="white b">Last updates :</h3>
             <Card
@@ -63,7 +63,7 @@ export default function Home() {
           </section>
         </Col>
 
-        <Col className="right-col" xs={24} sm={24} md={12} lg={12} xl={12}>
+        <Col className="right-col" xs={24} sm={24} md={12} lg={12} xl={10}>
           <section className="">
             <h3 className="white b">Playlist Authors</h3>
             <Row className="list-authors">

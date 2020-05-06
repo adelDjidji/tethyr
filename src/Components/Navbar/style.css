@@ -3,7 +3,7 @@
 }
 .logo-nav {
   border-right: solid 1px #d4d8dd;
-  text-align: right;
+  text-align: left;
     padding-right: 24pt !important;
     height: 56px;
     line-height: 56px;
@@ -19,7 +19,7 @@
 }
 .ant-layout-header {
   height: 56px !important;
-  padding: 0 50px;
+  padding: 0 69px !important;
   line-height: 56px;
   box-shadow: 1px 1px 4px rgba(39, 47, 58, 0.2247);
   z-index: 1;

@@ -48,10 +48,10 @@ export default function ButtonAppBar() {
             <Col xs={4} sm={4} md={0} lg={0} xl={0} className="button-nav">
               <Icon onClick={showDrawer} name="menu_icon" extention="svg" />
             </Col>
-            <Col xs={16} sm={16} md={4} lg={4} xl={4} className="logo-nav">
+            <Col xs={16} sm={16} md={4} lg={4} xl={3} className="logo-nav">
               <img src={logo} alt="logo tethyr" />
             </Col>
-            <Col xs={0} sm={0} md={18} lg={18} xl={18}>
+            <Col xs={0} sm={0} md={18} lg={18} xl={19}>
               <span className="nav-middle-menu">
                 <span> Menu: </span>
                 <Dropdown overlay={menu} trigger={["click"]}>
@@ -75,7 +75,7 @@ export default function ButtonAppBar() {
                 </Dropdown>
               </span>
             </Col>
-            <Col xs={4} sm={4} md={2} lg={2} xl={2}>
+            <Col className="right" xs={4} sm={4} md={2} lg={2} xl={2}>
             <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
             </Col>
             </Row>

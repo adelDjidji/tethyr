@@ -1,75 +1,73 @@
 import React, { useEffect, useState, createRef } from "react";
 import Carousel from "react-elastic-carousel";
-import ArrowNavigation from "../ArrowNavigation/ArrowNavigation";
+import ArrowNavigation from "./ArrowNavigation";
+import Card from "./Card";
+
 import "./caroussel.min.css";
-
-const Card = ({
-  image,
-  link,
-  title = "new",
-  youtube,
-  viemeo,
-  duration = "00:00",
-}) => {
-  let img = require("../../Assets/images/image 8.png");
-  return (
-    <div className="slider-card">
-      <img src={img} alt={title} />
-      <p>{duration}</p>
-    </div>
-  );
-};
-
-const Y_STEP = 141;
 
 export default function Caroussel({ list = [] }) {
   const [isMobile, setisMobile] = useState(false);
-  const [theNewElement, settheNewElement] = useState(null);
   const [cardsByPage, setcardsByPage] = useState(4);
   const [currentLeftIndex, setcurrentLeftIndex] = useState(0);
-  const refDiv = createRef();
+  const [existeNext, setexisteNext] = useState(true)
+  const [existePrev, setexistePrev] = useState(false)
+  const [rest, setRest] = useState(list.length-cardsByPage)
   const Refcarousel = createRef();
 
   useEffect(() => {
-    updateDimensions();
-    if (isMobile && cardsByPage !== 2) {
-      setcardsByPage(2);
-    } else {
-      setcardsByPage(4);
-    }
+
     window.addEventListener("resize", updateDimensions.bind(this));
     return () => {
       window.removeEventListener("resize", updateDimensions.bind(this));
     };
   });
 
+  // useEffect(() => {
+  //   if(list.length>cardsByPage){
+  //     setexisteNext(true)
+  //   }
+
+  // }, [list])
+
   const updateDimensions = () => {
     if (window.innerWidth < 700) {
       setisMobile(true);
+      setcardsByPage(2);
     } else {
+      setcardsByPage(4);
       setisMobile(false);
     }
+    console.log("setcardsByPage = ", cardsByPage);
   };
 
-  const onscroll = () => {
-    console.log("scrolling", refDiv);
-  };
   const moveLeft = () => {
     Refcarousel.current.slidePrev();
-
-    // console.log("scrolling left ",currentLeftIndex);
-    // if(currentLeftIndex>0){
-    //     refDiv.current.scrollLeft=currentLeftIndex-Y_STEP;
-    //     setcurrentLeftIndex(currentLeftIndex-Y_STEP)
-    // }
   };
   const moveRight = () => {
     Refcarousel.current.slideNext();
-    // console.log("scrolling right ",currentLeftIndex);
-    // refDiv.current.scrollLeft=currentLeftIndex+Y_STEP;
-    // setcurrentLeftIndex(currentLeftIndex+Y_STEP)
   };
 
+  const getItemPadding = () => {
+    if (isMobile) return [0, 0, 0, 21];
+    else return [];
+  };
+
+  const onNext = (currentItem) => {
+    console.log("next =",currentItem)
+    setcurrentLeftIndex(currentItem.index)
+  }
+  const onPrev = (currentItem) => {
+    console.log("prev =",currentItem)
+    setcurrentLeftIndex(currentItem.index)
+  }
+  const beforeNext = (currentItem, nextItem) => {
+    console.log("before next");
+    console.log(currentItem, nextItem);
+  }
+  const beforePrev = (currentItem, nextItem) => {
+    console.log("before prev");
+    console.log(currentItem, nextItem);
+  }
   return (
     <div className="caroussel-container">
       <div className="caroussel-navigation">
@@ -81,34 +79,26 @@ export default function Caroussel({ list = [] }) {
         </span>
       </div>
       <hr className="hr" />
-      <Carousel ref={Refcarousel} itemsToShow={3} showArrows={false} pagination={false}>
+      <Carousel
+        className={`caroussel-list-cards ${isMobile && "mini"}`}
+        ref={Refcarousel}
+        breakPoints={[{ itemsToShow: cardsByPage, itemsToScroll: 1 }]}
+        showArrows={false}
+        pagination={false}
+        itemPadding={getItemPadding()}
+        onNextStart={beforeNext}
+        // onNextEnd={onNext}
+        onPrevStart={beforePrev}
+        // onPrevEnd={onPrev}
+      >
         <Card duration="09:22" />
         <Card duration="09:22" />
-        <Card duration="09:22" />
-        <Card duration="09:22" />
-        <Card duration="09:22" />
+        <Card youtube duration="09:22" />
+        <Card youtube duration="09:22" />
+        <Card youtube duration="09:22" />
         <Card duration="09:22" />
         <Card duration="09:22" />
       </Carousel>
-      {
-        //     isMobile ? (
-        //     <div className="caroussel-list-cards mini">
-        //     <Card duration="18:40" />
-        //     <Card duration="10:11" />
-        //   </div>
-        // ) : (
-        //     <div ref={refDiv} onScroll={onscroll} className="caroussel-list-cards">
-        //     <Card duration="09:22" />
-        //     <Card duration="09:22" />
-        //     <Card duration="09:22" />
-        //     <Card duration="09:22" />
-        //     <Card duration="09:22" />
-        //     <Card duration="09:22" />
-        //     <Card duration="09:22" />
-        //     <Card duration="09:22" />
-        //   </div>
-        // )
-      }
     </div>
   );
 }

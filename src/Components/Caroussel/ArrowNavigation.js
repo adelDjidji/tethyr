@@ -9,6 +9,7 @@ export default function ArrowNavigation({
   if (direction === "right")
     return (
       <svg
+      className="middle"
         width="16"
         height="16"
         viewBox="0 0 16 16"
@@ -26,6 +27,7 @@ export default function ArrowNavigation({
   else
     return (
       <svg
+      className="middle"
         width="16"
         height="16"
         viewBox="0 0 16 16"

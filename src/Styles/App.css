@@ -78,6 +78,9 @@ h3{
 .right-col{
     padding-left: 10px !important;
 }
+.right{
+    text-align: right !important;
+}
 .list-authors, .list-hashtags{
     display: flex !important;
     flex-wrap: wrap;
@@ -107,4 +110,7 @@ span.hashtag {
 }
 .btn-add-playlist img.icon{
     margin-right: 12px;
+}
+.middle{
+    vertical-align: middle !important;
 }

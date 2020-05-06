@@ -10,7 +10,7 @@ export default function Card({ title = "", date = "", image = "" }) {
       <span className="card-title">
         <Icon
           name="youtube"
-          style={{ height: 15.4, marginBottom: 3, marginRight: 3 }}
+          style={{ height: 15.4, marginBottom: 3, marginRight: 8 }}
         />
         <b>WATCH LIVE :</b>
         <p className="p-content">{title}</p> - {date}
