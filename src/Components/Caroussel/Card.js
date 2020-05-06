@@ -9,7 +9,7 @@ export default function Card({
   viemeo,
   duration = "00:00",
 }) {
-  let img = require("../../Assets/images/image 8.png");
+  let img = require("../../Assets/images/"+ image);
   return (
     <div className="slider-card">
       <a href={link} className="slider-card-image">

@@ -1,7 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway);
+*{
+    transition: all ease .3s;
+}
 .container-home{
     background-image: url("../Assets/textures/backgound-home.png");
     background-size: cover;
+}
+.white-mode.container-home{
+    background: #f8f9fb !important;
 }
 .container{
     padding: 30px 75px;
@@ -15,6 +21,11 @@ div, body, section{
 .white{
     color: white;
 }
+.white-mode .white, .white-mode .btn-open, .white-mode span.hashtag{
+    color: #1F2941 !important;
+    border-color: #1F2941 !important;
+}
+
 .b{
     font-weight: bold;
 }
@@ -114,3 +125,5 @@ span.hashtag {
 .middle{
     vertical-align: middle !important;
 }
+
+.

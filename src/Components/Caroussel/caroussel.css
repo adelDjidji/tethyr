@@ -33,6 +33,12 @@
     max-height: 72px;
     overflow: hidden;
 }
+a.slider-card-image{
+    display: block;
+}
+.slider-card:hover{
+    /* transform: scale(1.1); */
+}
 
 .caroussel-list-cards div.rec-slider-container{
     margin: 0;

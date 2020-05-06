@@ -28,6 +28,12 @@
     top: 13px;
     right: 0;
    }
+   div.toggle-container{
+    position: absolute;
+    top: -136px;
+    z-index: 1;
+    right: 52px;
+   }
 
 /** /navbar-end */
 

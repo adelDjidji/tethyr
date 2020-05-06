@@ -1,16 +1,23 @@
-import React from "react";
+import React, {useState} from "react";
 import { Layout, Row, Col, Button } from "antd";
 import Icon from "../Components/Icon/Icon";
 import Card from "../Components/Card/Card";
 import Author from "../Components/Author/Author";
 import AuthorCard from "../Components/AuthorCard/AuthorCard";
 import Caroussel from "../Components/Caroussel/Caroussel";
+import Toggle from "../Components/Toggle/Toggle";
 
 const { Content } = Layout;
 
 export default function Home() {
+
+  const [darkMode, setdarkMode] = useState(true)
+  
+  const onToggleView = (isDark) => {
+    setdarkMode(isDark)
+  }
   return (
-    <Content className="container container-home">
+    <Content className={`container container-home ${darkMode?"":"white-mode"}`}>
       <Row >
         <Col xs={24} sm={24} md={24} lg={16} xl={18}>
           <h1 className="title white b L-1">
@@ -26,6 +33,7 @@ export default function Home() {
           style={{ textAlign: "right" }}
           className="btns-top-right"
         >
+        <Toggle onChange={onToggleView} isDarkMode />
           <Button className="btn-outlined btn-open" style={{ marginRight: 16 }}>
             Open
             <Icon name="arrow_up" extention="svg" />
