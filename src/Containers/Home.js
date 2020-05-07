@@ -36,7 +36,7 @@ export default function Home() {
         <Toggle onChange={onToggleView} isDarkMode />
           <Button className="btn-outlined btn-open" style={{ marginRight: 16 }}>
             Open
-            <Icon name="arrow_up" extention="svg" />
+            <Icon name={darkMode ?"arrow_top_right":"arrow_top_right_dark"} extention="svg" />
           </Button>
           <Button type="primary btn-add-playlist" className="btn-success">
             <Icon name="plist__white_add" /> Add to playlist
@@ -67,7 +67,7 @@ export default function Home() {
           </section>
 
           <section className="section">
-            <Caroussel />
+            <Caroussel isDarkMode={darkMode} />
           </section>
         </Col>
 

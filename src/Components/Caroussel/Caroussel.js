@@ -64,12 +64,13 @@ const liste_news = [
     duration: "05:20",
   },
 ];
-export default function Caroussel({ list }) {
+export default function Caroussel({ list, isDarkMode= true }) {
   const [isMobile, setisMobile] = useState(false);
   const [cardsByPage, setcardsByPage] = useState(4);
   const [currentLeftIndex, setcurrentLeftIndex] = useState(0);
   const [existeNext, setexisteNext] = useState(true);
   const [existePrev, setexistePrev] = useState(false);
+  const [dark, setdark] = useState(isDarkMode)
   const Refcarousel = createRef();
 
   useEffect(() => {
@@ -78,6 +79,9 @@ export default function Caroussel({ list }) {
       window.removeEventListener("resize", updateDimensions.bind(this));
     };
   });
+  useEffect(()=>{
+    setdark(isDarkMode)
+  }, [isDarkMode])
 
   const updateDimensions = () => {
     if (window.innerWidth < 700) {
@@ -128,10 +132,10 @@ export default function Caroussel({ list }) {
     <div className="caroussel-container">
       <div className="caroussel-navigation">
         <span onClick={moveLeft} className="btn-default">
-          <ArrowNavigation direction="left" active={existePrev} />
+          <ArrowNavigation dark={!dark} direction="left" active={existePrev} />
         </span>
         <span onClick={moveRight} className="btn-default">
-          <ArrowNavigation active={existeNext} />
+          <ArrowNavigation dark={!dark} active={existeNext} />
         </span>
       </div>
       <hr className="hr" />
