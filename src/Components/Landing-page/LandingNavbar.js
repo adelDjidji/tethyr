@@ -8,9 +8,9 @@ import signup from "../../Assets/landing-page/Sign up.svg";
 
 const { Header } = Layout;
 
-export default function LandingNavbar() {
+export default function LandingNavbar({ white = false }) {
   return (
-    <Header className="landing-nav-bar">
+    <Header className={`landing-nav-bar ${white ? "white-nav" : ""}`}>
       <Row>
         <Col xs={6} sm={6} md={6} lg={5} xl={6}>
           <img className="logo" src={logo} alt="logo tethyr" />
