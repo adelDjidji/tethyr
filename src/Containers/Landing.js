@@ -8,38 +8,49 @@ import "../Styles/landing.scss";
 
 const main_svg = require("../Assets/landing-page/main-illustration.svg");
 const check = require("../Assets/landing-page/check.svg");
-const { Content } = Layout;
 
 export default function Landing() {
-  const [hidden, sethidden] = useState(false);
-  const navbar = createRef();
-  const content = createRef();
+  const [navBarWhite, setnavBarWhite] = useState(false);
+  const [isMobile, setisMobile] = useState(window.innerWidth < 430);
+  const Caroussel = createRef()
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", updateDimensions.bind(this));
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", updateDimensions.bind(this));
     };
   });
 
-  const handleScroll = (e) => {
-    console.log("scroll =", content.current.scrollTop);
-    let lastScrollTop = 0;
-    const currentScrollTop = document.scrollTop;
+  const updateDimensions = () => {
+    if (window.innerWidth < 430) {
+      setisMobile(true);
+    } else {
+      setisMobile(false);
+    }
+  };
 
-    // Set the state of hidden depending on scroll position
-    // We only change the state if it needs to be changed
-    if (!hidden && currentScrollTop > lastScrollTop) {
-      sethidden(true);
-    } else if (hidden) {
-      sethidden(false);
+  var lastScrollTop = 0;
+  const handleScroll = (e) => {
+    console.log("e =", e.target.scrollingElement.scrollTop);
+
+    const currentScrollTop = e.target.scrollingElement.scrollTop;
+
+    if (currentScrollTop > lastScrollTop) {
+      console.log("Going DOWN");
+      if (currentScrollTop >= 90 && !navBarWhite) {
+        setnavBarWhite(true);
+      }
+    } else {
+      console.log("Going UP");
+      if (currentScrollTop <= 90 && navBarWhite) {
+        setnavBarWhite(false);
+      }
     }
     lastScrollTop = currentScrollTop;
   };
-  const scrolling = (e) => {
-    console.log("scrolling = ", Window.scrollY);
-    console.log("scrolling ref = ", content.current.scrollTop);
-  };
+
   const customArrow = ({ type, onClick }) => {
     const arrow =
       type === consts.PREV ? (
@@ -54,9 +65,16 @@ export default function Landing() {
     return <span onClick={onClick}>{arrow}</span>;
   };
 
+  const moveLeft = () => {
+    Carousel.current.slidePrev();
+  };
+  const moveRight = () => {
+    Carousel.current.slideNext();
+  };
+
   return (
-    <div onScroll={scrolling} ref={content} className="landing">
-      <LandingNavbar />
+    <div className="landing">
+      <LandingNavbar white={navBarWhite} />
       <div className="landing-page-container">
         <section className="section1">
           <Row>
@@ -68,7 +86,9 @@ export default function Landing() {
               lg={10}
               xl={10}
             >
-              <h1 className="big-title">STREAM IT ALL TOGETHER IN ONE PLACE</h1>
+              <h1 className="big-title sm-title1">
+                STREAM IT ALL TOGETHER IN ONE PLACE
+              </h1>
               <p>
                 <img src={check} alt="" />
                 The future of multi-tasking is her. <br />
@@ -90,7 +110,9 @@ export default function Landing() {
                 Tethyr's interface brings all of your favorites <br />
                 into one, convenient application.
               </p>
-              <button className="yellow-btn">Join now for free</button>
+              <button style={{ marginTop: 21 }} className="yellow-btn">
+                Join now for free
+              </button>
             </Col>
             <Col
               xs={23}
@@ -98,51 +120,68 @@ export default function Landing() {
               md={10}
               lg={11}
               xl={11}
-              className="main-svg bg"
-              style={{
-                height: 397,
-                backgroundImage: "url(/landing-page/main-illustration.svg)",
-              }}
+              className="main-svg-bg"
+              style={
+                {
+                  // height: 397,
+                  // backgroundImage: "url(/landing-page/main-illustration.svg)",
+                }
+              }
             >
               {
-                //   <img src={main_svg} alt="main illustration" />
+                <img
+                  className="main-svg"
+                  src={main_svg}
+                  alt="main illustration"
+                />
               }
             </Col>
           </Row>
         </section>
 
         <section className="section2 center">
-          <h1 className="big-title center">all streaming media in one site</h1>
+          <h1 className="big-title center sm-title2">
+            all streaming media in one site
+          </h1>
           <p className="title-description">Tethyr features video.</p>
           <img src="/landing-page/laptop-video.png" alt="" />
         </section>
 
         <section className="section3 center">
-          <h1 className="big-title center">product slideshow</h1>
+          <h1 className="big-title center sm-title2">product slideshow</h1>
           <p className="title-description">
             Sign up to use these features now.
           </p>
-          <Row>
-            <Col span={4}>
-              <div className="slideshow-btn">
+          <Row type="flex" justify="center">
+            <Col xs={0} sm={0} md={0} lg={3} xl={4}>
+              <div className="slideshow-btn slideshow-btn-lg">
                 <Icon name="shevrone_navigation_left_dark" extention="svg" />
               </div>
             </Col>
-            <Col span={4} style={{ marginTop: "120pt" }}>
+            <Col xs={7} sm={7} md={7} lg={4} xl={4} className="slideshow-col-left">
               <img src="/landing-page/slideShow1.png" alt="" />
             </Col>
-            <Col
-              span={6}
-              style={{ margin: "0px 53px 0 41px", height: "117vh" }}
-            >
+            <Col xs={9} sm={9} md={9} lg={6} xl={6} className="slideshow-col-center">
               <div className="mobile-view">
                 <div className="mobile-view-screen"></div>
               </div>
             </Col>
-            <Col span={4} style={{ marginTop: "120pt" }}>
+            <Col xs={7} sm={7} md={7} lg={4} xl={4} className="slideshow-col-right">
               <img src="/landing-page/slideShow3.png" alt="" />
             </Col>
-            <Col span={4}>
+            <Col xs={0} sm={0} md={0} lg={3} xl={4}>
+              <div className="slideshow-btn slideshow-btn-lg">
+                <Icon name="shevrone_navigation_right_dark" extention="svg" />
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12} sm={12} md={12} lg={0} xl={0}>
+              <div className="slideshow-btn">
+                <Icon name="shevrone_navigation_left_dark" extention="svg" />
+              </div>
+            </Col>
+            <Col xs={12} sm={12} md={12} lg={0} xl={0}>
               <div className="slideshow-btn">
                 <Icon name="shevrone_navigation_right_dark" extention="svg" />
               </div>
@@ -152,21 +191,21 @@ export default function Landing() {
 
         <section className="section4">
           <Carousel
+            ref={Caroussel}
             className={`slide-show-caroussel`}
             breakPoints={[{ itemsToShow: 1, itemsToScroll: 1 }]}
-            showArrows={true}
+            showArrows={!isMobile}
             pagination={false}
             renderArrow={customArrow}
           >
             <item>
-              <h1 className="big-title center">
+              <h1 className="big-title center sm-title2 no-padding">
                 welcome to the future. watch the future
               </h1>
               <p className="title-description">premium interface</p>
               <Row>
                 <Col xs={24} sm={24} md={24} lg={8} xl={8} className="center">
                   <div className="feature-icon">
-                    {" "}
                     <img
                       src={require("../Assets/landing-page/features-icon-1.svg")}
                       alt=""
@@ -265,7 +304,7 @@ export default function Landing() {
               </Row>
             </item>
             <item>
-              <h1 className="big-title center">
+              <h1 className="big-title center sm-title2">
                 welcome to the future. watch the future
               </h1>
               <p className="title-description">premium interface</p>
@@ -371,15 +410,32 @@ export default function Landing() {
               </Row>
             </item>
           </Carousel>
-        </section>
+        
+          <Row type="flex" justify="center" className="bottom-navigation">
+          <Col xs={4} sm={4} md={4} lg={0} xl={0}>
+            <div className="slideshow-btn no-margin" onClick={moveLeft}>
+              <Icon name="shevrone_navigation_left_dark" extention="svg" />
+            </div>
+          </Col>
+          <Col xs={4} sm={4} md={4} lg={0} xl={0}>
+            <div className="slideshow-btn no-margin" onClick={moveRight}>
+              <Icon name="shevrone_navigation_right_dark" extention="svg" />
+            </div>
+          </Col>
+        </Row>
+          </section>
 
         <section className="section5">
-          <h1 className="big-title center white">membership title here</h1>
-          <p className="title-description white"><b>Premium interface</b> </p>
+          <h1 className="big-title center white sm-title2">
+            membership title here
+          </h1>
+          <p className="title-description white">
+            <b>Premium interface</b>{" "}
+          </p>
 
-          <Row type="flex" justify="center" style={{marginTop: 70}}>
-            <Col span={7}>
-              <div className="card-price" style={{float : 'right'}}>
+          <Row type="flex" justify="center" style={{ marginTop: 70 }}>
+            <Col sm={24} md={7} lg={7} xl={7}>
+              <div className="card-price" style={{ float: "right" }}>
                 <h1 className="title">Free</h1>
                 <b className="price">$0/month</b>
                 <div className="features">
@@ -388,11 +444,11 @@ export default function Landing() {
                   <p>feature 1</p>
                 </div>
                 <div className="price-footer">
-                <button className="yellow-btn">Join now</button>
+                  <button className="yellow-btn">Join now</button>
                 </div>
               </div>
             </Col>
-            <Col span={7}>
+            <Col  sm={24} md={7}  lg={7} xl={7}>
               <div className="card-price middle">
                 <h1 className="title">Verified</h1>
                 <b className="price">$0/month</b>
@@ -402,11 +458,11 @@ export default function Landing() {
                   <p>feature 1</p>
                 </div>
                 <div className="price-footer">
-                <button className="yellow-btn">Join now</button>
+                  <button className="yellow-btn">Join now</button>
                 </div>
               </div>
             </Col>
-            <Col span={7}>
+            <Col sm={24} md={7} lg={7} xl={7}>
               <div className="card-price">
                 <h1 className="title">Pro</h1>
                 <b className="price">$0/month</b>
@@ -416,7 +472,7 @@ export default function Landing() {
                   <p>feature 1</p>
                 </div>
                 <div className="price-footer">
-                <button className="yellow-btn">Join now</button>
+                  <button className="yellow-btn">Join now</button>
                 </div>
               </div>
             </Col>
@@ -424,17 +480,17 @@ export default function Landing() {
         </section>
 
         <footer className="footer-landing">
-              <Row>
-                <Col className="center" xs={24} sm={24} ms={24} lg={8} xl={8}>
-                    <img src="/landing-page/logo-footer.png" alt=""/>
-                </Col>
-                <Col className="center" xs={24} sm={24} ms={24} lg={8} xl={8}>
-                    <b>Future Realities Inc.©2020. All rights reserved. </b>
-                </Col>
-                <Col className="center" xs={24} sm={24} ms={24} lg={8} xl={8}>
-                    <a href="#">Privacy Policy</a>
-                </Col>
-              </Row>
+          <Row>
+            <Col className="center" xs={24} sm={24} ms={24} lg={8} xl={8}>
+              <img src="/landing-page/logo-footer.png" alt="" />
+            </Col>
+            <Col className="center" xs={24} sm={24} ms={24} lg={8} xl={8}>
+              <b>Future Realities Inc.©2020. All rights reserved. </b>
+            </Col>
+            <Col className="center" xs={24} sm={24} ms={24} lg={8} xl={8}>
+              <a href="#">Privacy Policy</a>
+            </Col>
+          </Row>
         </footer>
       </div>
     </div>

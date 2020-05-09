@@ -1,0 +1,155 @@
+/**
+* Mobile and tablet
+*/
+@media (max-width: 767px) {
+  // 0 to 767
+  .landing-page-container .section1 {
+    .ant-col:first-child {
+      padding-left: 0px !important;
+      text-align: center;
+    }
+    .description {
+      margin-block-end: 61px;
+      p img {
+        display: none;
+      }
+    }
+    .main-svg {
+      right: 0% !important;
+      width: 100% !important;
+    }
+  }
+
+  .sm-title1 {
+    font-size: 25px !important;
+    padding: 0 34pt;
+  }
+  .sm-title2 {
+    font-size: 20px !important;
+    padding: 0 64pt;
+  }
+
+  .slideshow-col-left {
+    margin-top: 26pt !important;
+  }
+
+  .slideshow-col-center {
+    margin: 0px 3px !important;
+    height: 57vh !important;
+    .mobile-view {
+      background-position: top;
+    }
+    .mobile-view-screen {
+      height: 192px;
+      width: 76%;
+      top: 7.5vh;
+      left: 24px;
+      border-radius: 0px;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+
+  .slideshow-col-right {
+    margin-top: 26pt !important;
+  }
+
+  .section3 {
+    // .ant-row:first-child{
+    //   max-height: 241pt !important;
+    //   overflow: hidden !important;
+    // }
+    padding: 0 14px !important;
+    .slideshow-btn {
+      margin-top: 0 !important;
+    }
+  }
+  .section5 .card-price.middle {
+    padding-block-end: 115px;
+    width: 350px !important;
+    top: 0px !important;
+  }
+  .section5 .card-price {
+    margin-bottom: 30px;
+  }
+  footer.footer-landing .ant-row .ant-col {
+    padding: 66px 98px !important;
+  }
+
+  section.section4 {
+    max-height: 1702pt !important;
+    .rec-carousel{
+      max-height: 1553pt !important;
+    }
+    .bottom-navigation{
+      padding-bottom: 20pt;
+    }
+  }
+  
+}
+
+/**
+Only tablet
+*/
+@media (min-width: 430px) and (max-width: 770px) {
+  section.section4 {
+    max-height: 1353pt !important;
+  }
+  .section3 {
+    .slideshow-col-center {
+      margin: 0px 3px !important;
+      height: 57vh !important;
+      .mobile-view {
+        background-position: top;
+        height: 524px !important;
+      }
+      .mobile-view-screen {
+        height: 388px;
+        width: 74%;
+        top: 14.5vh;
+        left: 43px;
+        border-radius: 0px;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+    }
+    .slideshow-col-left,
+    .slideshow-col-right {
+      margin-top: 51pt !important;
+    }
+    .slideshow-btn {
+      margin-top: 30px !important;
+    }
+  }
+  .section5 .card-price {
+    width: 262px !important;
+    padding: 20px 52px !important;
+  }
+}
+
+/**
+Laptop M
+*/
+@media (min-width: 771px) and (max-width: 1025px) {
+  div.mobile-view-screen {
+    height: 64vh;
+    width: 19vw;
+    position: absolute;
+    top: 27vh;
+    left: 38px;
+    border-radius: 5px;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  div.slideshow-btn {
+    margin-top: 218%;
+  }
+}
+
+
+/**
+Laptop 4K
+*/
+@media (min-width: 1450px){
+  
+}

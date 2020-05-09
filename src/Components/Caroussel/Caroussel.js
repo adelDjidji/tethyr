@@ -119,14 +119,6 @@ export default function Caroussel({ list, isDarkMode= true }) {
     if (currentItem.index === 0) setexistePrev(false);
   };
 
-  // const beforeNext = (currentItem, nextItem) => {
-  //   console.log("before next");
-  //   console.log(currentItem, nextItem);
-  // }
-  // const beforePrev = (currentItem, nextItem) => {
-  //   console.log("before prev");
-  //   console.log(currentItem, nextItem);
-  // }
 
   return (
     <div className="caroussel-container">

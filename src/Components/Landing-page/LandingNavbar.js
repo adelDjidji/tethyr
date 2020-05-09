@@ -12,16 +12,16 @@ export default function LandingNavbar({ white = false }) {
   return (
     <Header className={`landing-nav-bar ${white ? "white-nav" : ""}`}>
       <Row>
-        <Col xs={6} sm={6} md={6} lg={5} xl={6}>
+        <Col xs={6} sm={6} md={6} lg={4} xl={6}>
           <img className="logo" src={logo} alt="logo tethyr" />
         </Col>
-        <Col xs={0} sm={0} md={10} lg={11} xl={11}>
+        <Col xs={0} sm={0} md={0} lg={11} xl={11}>
           <b className="menu-item">Video</b>
           <b className="menu-item">SlideShow</b>
           <b className="menu-item">Features</b>
           <b className="menu-item">Join now</b>
         </Col>
-        <Col xs={0} sm={0} md={6} lg={8} xl={7} className="right">
+        <Col xs={0} sm={0} md={0} lg={9} xl={7} className="right">
           <span className="btn-login">
             <img src={login_icon} alt="" />
           </span>
