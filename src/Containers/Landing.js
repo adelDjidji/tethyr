@@ -1,5 +1,6 @@
 import React, { useState, useEffect, createRef } from "react";
 import { Layout, Row, Col } from "antd";
+import * as Antd from "antd";
 import Carousel, { consts } from "react-elastic-carousel";
 import LandingNavbar from "../Components/Landing-page/LandingNavbar";
 import Icon from "../Components/Icon/Icon";
@@ -7,16 +8,28 @@ import MobileCaroussel from "../Components/Landing-page/MobileCaroussel";
 
 import "../Styles/landing.scss";
 
+import logo from "../Assets/images/logo.png";
+import login_icon from "../Assets/landing-page/Login.svg";
+import signup from "../Assets/landing-page/Sign up.svg";
+
+const { Header } = Layout;
+
 const main_svg = require("../Assets/landing-page/main-illustration.svg");
 const check = require("../Assets/landing-page/check.svg");
-const LIMIT_IS_MOBILE= 500
+
+const LIMIT_IS_MOBILE = 500;
+
 export default function Landing() {
   const [navBarWhite, setnavBarWhite] = useState(false);
   const [isMobile, setisMobile] = useState(window.innerWidth < LIMIT_IS_MOBILE);
-  const Refcarousel = createRef()
+  const Refcarousel = createRef();
+  const Ref1 = createRef();
+  const Ref2 = createRef();
+  const Ref3 = createRef();
+  const Ref4 = createRef();
 
   useEffect(() => {
-    setisMobile(window.innerWidth < LIMIT_IS_MOBILE)
+    setisMobile(window.innerWidth < LIMIT_IS_MOBILE);
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", updateDimensions.bind(this));
     return () => {
@@ -26,7 +39,7 @@ export default function Landing() {
   });
 
   const updateDimensions = () => {
-    if (window.innerWidth <LIMIT_IS_MOBILE) {
+    if (window.innerWidth < LIMIT_IS_MOBILE) {
       setisMobile(true);
     } else {
       setisMobile(false);
@@ -74,9 +87,51 @@ export default function Landing() {
     Refcarousel.current.slideNext();
   };
 
+  const scrollToPoint = (id) => {
+    let dest=0;
+    switch(id){
+      case 1: dest = Ref1
+      break;
+      case 2: dest = Ref2
+      break;
+      case 3: dest = Ref3
+      break;
+      case 4: dest = Ref4
+      break;
+      default: dest= 0;
+    }
+    window.scrollTo({
+      top: dest.current.offsetTop,
+      behavior: 'smooth'  
+  })
+  }
+  const LandingNavbar = () => {
+      return <Header className={`landing-nav-bar ${navBarWhite ? "white-nav" : ""}`}>
+      <Row>
+        <Col xs={6} sm={6} md={6} lg={4} xl={6}>
+          <img className="logo" src={logo} alt="logo tethyr" />
+        </Col>
+        <Col xs={0} sm={0} md={0} lg={11} xl={11}>
+          <b onClick={scrollToPoint.bind(this,1)} className="menu-item">Video</b>
+          <b onClick={scrollToPoint.bind(this,2)} className="menu-item">SlideShow</b>
+          <b onClick={scrollToPoint.bind(this,3)} className="menu-item">Features</b>
+          <b onClick={scrollToPoint.bind(this,4)} className="menu-item">Join now</b>
+        </Col>
+        <Col xs={0} sm={0} md={0} lg={9} xl={7} className="right">
+          <span className="btn-login">
+            <img src={login_icon} alt="" />
+          </span>
+
+          <button className="yellow-btn">
+            <img src={signup} alt="" />
+          </button>
+        </Col>
+      </Row>
+    </Header>
+  }
   return (
     <div className="landing">
-      <LandingNavbar white={navBarWhite} />
+      <LandingNavbar  />
       <div className="landing-page-container">
         <section className="section1">
           <Row>
@@ -112,8 +167,11 @@ export default function Landing() {
                 Tethyr's interface brings all of your favorites <br />
                 into one, convenient application.
               </p>
-              <button style={{ marginTop: 21 }} className="yellow-btn">
-                Join now for free
+              <button
+                style={{ marginTop: 21 }}
+                className="yellow-btn"
+              >
+                Join now for free <Antd.Icon type="right" />
               </button>
             </Col>
             <Col
@@ -141,7 +199,7 @@ export default function Landing() {
           </Row>
         </section>
 
-        <section className="section2 center">
+        <section ref={Ref1} className="section2 center">
           <h1 className="big-title center sm-title2">
             all streaming media in one site
           </h1>
@@ -149,18 +207,16 @@ export default function Landing() {
           <img src="/landing-page/laptop-video.png" alt="" />
         </section>
 
-        <section className="section3 center">
+        <section ref={Ref2} className="section3 center">
           <h1 className="big-title center sm-title2">product slideshow</h1>
           <p className="title-description">
             Sign up to use these features now.
           </p>
-          
-
 
           <MobileCaroussel />
         </section>
 
-        <section className="section4">
+        <section ref={Ref3} className="section4">
           <Carousel
             ref={Refcarousel}
             className={`slide-show-caroussel`}
@@ -175,13 +231,15 @@ export default function Landing() {
               </h1>
               <p className="title-description">premium interface</p>
               <Row className="item-row" type="flex" justify="space-between">
-                <Col xs={24} sm={24} md={24} lg={8} xl={6} className="center item-col">
-                  <div className="feature-icon">
-                    <img
-                      src={require("../Assets/landing-page/features-icon-1.svg")}
-                      alt=""
-                    />
-                  </div>
+                <Col
+                  xs={24}
+                  sm={24}
+                  md={24}
+                  lg={8}
+                  xl={6}
+                  className="center item-col"
+                >
+                  <div className="feature-icon bg-1"></div>
                   <div>
                     <b>Multi-Source Playlists</b>
                   </div>
@@ -191,14 +249,15 @@ export default function Landing() {
                     podcasts and web pages.
                   </p>
                 </Col>
-                <Col xs={24} sm={24} md={24} lg={8} xl={6} className="center item-col">
-                  <div className="feature-icon">
-                    {" "}
-                    <img
-                      src={require("../Assets/landing-page/features-icon-2.svg")}
-                      alt=""
-                    />
-                  </div>
+                <Col
+                  xs={24}
+                  sm={24}
+                  md={24}
+                  lg={8}
+                  xl={6}
+                  className="center item-col"
+                >
+                  <div className="feature-icon bg-2"></div>
                   <div>
                     <b>Display Manager</b>
                   </div>
@@ -208,14 +267,15 @@ export default function Landing() {
                     single-view displays.
                   </p>
                 </Col>
-                <Col xs={24} sm={24} md={24} lg={8} xl={6} className="center item-col">
-                  <div className="feature-icon">
-                    {" "}
-                    <img
-                      src={require("../Assets/landing-page/features-icon-3.svg")}
-                      alt=""
-                    />
-                  </div>
+                <Col
+                  xs={24}
+                  sm={24}
+                  md={24}
+                  lg={8}
+                  xl={6}
+                  className="center item-col"
+                >
+                  <div className="feature-icon bg-3"></div>
                   <div>
                     <b>Audio</b>
                   </div>
@@ -226,13 +286,15 @@ export default function Landing() {
                 </Col>
               </Row>
               <Row className="item-row" type="flex" justify="space-between">
-                <Col xs={24} sm={24} md={24} lg={8} xl={6} className="center item-col">
-                  <div className="feature-icon">
-                    <img
-                      src={require("../Assets/landing-page/features-icon-4.svg")}
-                      alt=""
-                    />
-                  </div>
+                <Col
+                  xs={24}
+                  sm={24}
+                  md={24}
+                  lg={8}
+                  xl={6}
+                  className="center item-col"
+                >
+                  <div className="feature-icon bg-4"></div>
                   <div>
                     <b>Collaborate</b>
                   </div>
@@ -242,13 +304,15 @@ export default function Landing() {
                     users instantly and effortlessly.
                   </p>
                 </Col>
-                <Col xs={24} sm={24} md={24} lg={8} xl={6} className="center item-col">
-                  <div className="feature-icon">
-                    <img
-                      src={require("../Assets/landing-page/features-icon-5.svg")}
-                      alt=""
-                    />
-                  </div>
+                <Col
+                  xs={24}
+                  sm={24}
+                  md={24}
+                  lg={8}
+                  xl={6}
+                  className="center item-col"
+                >
+                  <div className="feature-icon bg-5"></div>
                   <div>
                     <b>Layouts</b>
                   </div>
@@ -257,13 +321,15 @@ export default function Landing() {
                     display - from mobile to desktop 4K.
                   </p>
                 </Col>
-                <Col xs={24} sm={24} md={24} lg={8} xl={6} className="center item-col">
-                  <div className="feature-icon">
-                    <img
-                      src={require("../Assets/landing-page/features-icon-6.svg")}
-                      alt=""
-                    />
-                  </div>
+                <Col
+                  xs={24}
+                  sm={24}
+                  md={24}
+                  lg={8}
+                  xl={6}
+                  className="center item-col"
+                >
+                  <div className="feature-icon bg-6"></div>
                   <div>
                     <b>Mobile</b>
                   </div>
@@ -275,19 +341,20 @@ export default function Landing() {
               </Row>
             </item>
             <item>
-              <h1 className="big-title center sm-title2">
-                welcome to the future. watch the future
+              <h1 className="big-title center sm-title2 no-padding">
+                Value prop for users
               </h1>
-              <p className="title-description">premium interface</p>
-              <Row>
-                <Col xs={24} sm={24} md={24} lg={8} xl={6} className="center item-col">
-                  <div className="feature-icon">
-                    {" "}
-                    <img
-                      src={require("../Assets/landing-page/features-icon-1.svg")}
-                      alt=""
-                    />
-                  </div>
+              <p className="title-description">Subtitle here</p>
+              <Row className="item-row" type="flex" justify="space-between">
+                <Col
+                  xs={24}
+                  sm={24}
+                  md={24}
+                  lg={8}
+                  xl={6}
+                  className="center item-col"
+                >
+                  <div className="feature-icon bg-1"></div>
                   <div>
                     <b>Multi-Source Playlists</b>
                   </div>
@@ -297,14 +364,15 @@ export default function Landing() {
                     podcasts and web pages.
                   </p>
                 </Col>
-                <Col xs={24} sm={24} md={24} lg={8} xl={6} className="center item-col">
-                  <div className="feature-icon">
-                    {" "}
-                    <img
-                      src={require("../Assets/landing-page/features-icon-2.svg")}
-                      alt=""
-                    />
-                  </div>
+                <Col
+                  xs={24}
+                  sm={24}
+                  md={24}
+                  lg={8}
+                  xl={6}
+                  className="center item-col"
+                >
+                  <div className="feature-icon bg-2"></div>
                   <div>
                     <b>Display Manager</b>
                   </div>
@@ -314,14 +382,15 @@ export default function Landing() {
                     single-view displays.
                   </p>
                 </Col>
-                <Col xs={24} sm={24} md={24} lg={8} xl={6} className="center item-col">
-                  <div className="feature-icon">
-                    {" "}
-                    <img
-                      src={require("../Assets/landing-page/features-icon-3.svg")}
-                      alt=""
-                    />
-                  </div>
+                <Col
+                  xs={24}
+                  sm={24}
+                  md={24}
+                  lg={8}
+                  xl={6}
+                  className="center item-col"
+                >
+                  <div className="feature-icon bg-3"></div>
                   <div>
                     <b>Audio</b>
                   </div>
@@ -331,14 +400,16 @@ export default function Landing() {
                   </p>
                 </Col>
               </Row>
-              <Row>
-                <Col xs={24} sm={24} md={24} lg={8} xl={6} className="center item-col">
-                  <div className="feature-icon">
-                    <img
-                      src={require("../Assets/landing-page/features-icon-4.svg")}
-                      alt=""
-                    />
-                  </div>
+              <Row className="item-row" type="flex" justify="space-between">
+                <Col
+                  xs={24}
+                  sm={24}
+                  md={24}
+                  lg={8}
+                  xl={6}
+                  className="center item-col"
+                >
+                  <div className="feature-icon bg-4"></div>
                   <div>
                     <b>Collaborate</b>
                   </div>
@@ -348,13 +419,15 @@ export default function Landing() {
                     users instantly and effortlessly.
                   </p>
                 </Col>
-                <Col xs={24} sm={24} md={24} lg={8} xl={6} className="center item-col">
-                  <div className="feature-icon">
-                    <img
-                      src={require("../Assets/landing-page/features-icon-5.svg")}
-                      alt=""
-                    />
-                  </div>
+                <Col
+                  xs={24}
+                  sm={24}
+                  md={24}
+                  lg={8}
+                  xl={6}
+                  className="center item-col"
+                >
+                  <div className="feature-icon bg-5"></div>
                   <div>
                     <b>Layouts</b>
                   </div>
@@ -363,13 +436,130 @@ export default function Landing() {
                     display - from mobile to desktop 4K.
                   </p>
                 </Col>
-                <Col xs={24} sm={24} md={24} lg={8} xl={6} className="center item-col">
-                  <div className="feature-icon">
-                    <img
-                      src={require("../Assets/landing-page/features-icon-6.svg")}
-                      alt=""
-                    />
+                <Col
+                  xs={24}
+                  sm={24}
+                  md={24}
+                  lg={8}
+                  xl={6}
+                  className="center item-col"
+                >
+                  <div className="feature-icon bg-6"></div>
+                  <div>
+                    <b>Mobile</b>
                   </div>
+                  <p>
+                    Extend the TYR experience to your smartphone or tablet
+                    without expensive hardware.
+                  </p>
+                </Col>
+              </Row>
+            </item>
+            <item>
+              <h1 className="big-title center sm-title2 no-padding">
+                Value proposed for streamers
+              </h1>
+              <p className="title-description">Subtitle here</p>
+              <Row className="item-row" type="flex" justify="space-between">
+                <Col
+                  xs={24}
+                  sm={24}
+                  md={24}
+                  lg={8}
+                  xl={6}
+                  className="center item-col"
+                >
+                  <div className="feature-icon bg-1"></div>
+                  <div>
+                    <b>Multi-Source Playlists</b>
+                  </div>
+                  <p>
+                    Create, Eedit, share and watch playlists featuring items
+                    from different platforms including streaming video sites,
+                    podcasts and web pages.
+                  </p>
+                </Col>
+                <Col
+                  xs={24}
+                  sm={24}
+                  md={24}
+                  lg={8}
+                  xl={6}
+                  className="center item-col"
+                >
+                  <div className="feature-icon bg-2"></div>
+                  <div>
+                    <b>Display Manager</b>
+                  </div>
+                  <p>
+                    Toggle the video of up to eight video sources at once with
+                    the Multi-Viewer, or navigate the playlists in a simple,
+                    single-view displays.
+                  </p>
+                </Col>
+                <Col
+                  xs={24}
+                  sm={24}
+                  md={24}
+                  lg={8}
+                  xl={6}
+                  className="center item-col"
+                >
+                  <div className="feature-icon bg-3"></div>
+                  <div>
+                    <b>Audio</b>
+                  </div>
+                  <p>
+                    Toggle the audio in the Multi-Viewer and monitor any of the
+                    sources in your display - including podcasts.
+                  </p>
+                </Col>
+              </Row>
+              <Row className="item-row" type="flex" justify="space-between">
+                <Col
+                  xs={24}
+                  sm={24}
+                  md={24}
+                  lg={8}
+                  xl={6}
+                  className="center item-col"
+                >
+                  <div className="feature-icon bg-4"></div>
+                  <div>
+                    <b>Collaborate</b>
+                  </div>
+                  <p>
+                    Collaborate on shared playlists with a team, or podcast a
+                    playlist to subscribers. Share with Tethyr and non-Tethyr
+                    users instantly and effortlessly.
+                  </p>
+                </Col>
+                <Col
+                  xs={24}
+                  sm={24}
+                  md={24}
+                  lg={8}
+                  xl={6}
+                  className="center item-col"
+                >
+                  <div className="feature-icon bg-5"></div>
+                  <div>
+                    <b>Layouts</b>
+                  </div>
+                  <p>
+                    Different layouts are provided to get the most use of your
+                    display - from mobile to desktop 4K.
+                  </p>
+                </Col>
+                <Col
+                  xs={24}
+                  sm={24}
+                  md={24}
+                  lg={8}
+                  xl={6}
+                  className="center item-col"
+                >
+                  <div className="feature-icon bg-6"></div>
                   <div>
                     <b>Mobile</b>
                   </div>
@@ -381,22 +571,22 @@ export default function Landing() {
               </Row>
             </item>
           </Carousel>
-        
-          <Row type="flex" justify="center" className="bottom-navigation">
-          <Col xs={4} sm={4} md={0} lg={0} xl={0}>
-            <div className="slideshow-btn no-margin left" onClick={moveLeft}>
-              <Icon name="shevrone_navigation_left_dark" extention="svg" />
-            </div>
-          </Col>
-          <Col xs={4} sm={4} md={0} lg={0} xl={0}>
-            <div className="slideshow-btn no-margin" onClick={moveRight}>
-              <Icon name="shevrone_navigation_right_dark" extention="svg" />
-            </div>
-          </Col>
-        </Row>
-          </section>
 
-        <section className="section5">
+          <Row type="flex" justify="center" className="bottom-navigation">
+            <Col xs={4} sm={4} md={0} lg={0} xl={0}>
+              <div className="slideshow-btn no-margin left" onClick={moveLeft}>
+                <Icon name="shevrone_navigation_left_dark" extention="svg" />
+              </div>
+            </Col>
+            <Col xs={4} sm={4} md={0} lg={0} xl={0}>
+              <div className="slideshow-btn no-margin" onClick={moveRight}>
+                <Icon name="shevrone_navigation_right_dark" extention="svg" />
+              </div>
+            </Col>
+          </Row>
+        </section>
+
+        <section ref={Ref4} className="section5">
           <h1 className="big-title center white sm-title2">
             membership title here
           </h1>
@@ -419,7 +609,7 @@ export default function Landing() {
                 </div>
               </div>
             </Col>
-            <Col  sm={24} md={7}  lg={7} xl={7}>
+            <Col sm={24} md={7} lg={7} xl={7}>
               <div className="card-price middle">
                 <h1 className="title">Verified</h1>
                 <b className="price">$0/month</b>
