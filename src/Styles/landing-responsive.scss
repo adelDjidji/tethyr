@@ -435,4 +435,64 @@ Laptop 4K
     line-height: 2;
     color: #4d4d4d;
   }
+
+
+  img.mobile-view-screen {
+
+  &.post-1{
+    transform: translateX(-570px) scale(0.9) !important;
+    opacity: 0.3;
+  }
+  &.post-3{
+    transform: translateX(580px) scale(0.9) !important;
+    opacity: 0.3;
+  }
+  &.post-4{
+    transform: translateX(13px) scale(0);
+    opacity: 0;
+  }
+  &.post-0{
+    transform: translateX(-13px) scale(0);
+    opacity: 0;
+  }
+  }
+
+  div.slideshow-col-right {
+    opacity: 0.3;
+    &.post-2{
+      transform: translateX(-572px) translateY(663px) scale(1.9) !important;
+      opacity: 1 !important;
+    }
+    &.post-1{
+      transform: translateX(-693px) scale(1) !important;
+    }
+    &.post-4,&.post-5{
+      transform: translateX(13px) scale(0) !important;
+      opacity: 0 !important;
+    }
+    &.post-0{
+      transform: translateX(-13px) scale(0);
+      opacity: 0;
+    }
+  }
+
+  div.slideshow-col-left {
+    opacity: 0.3;
+    &.post-2{
+      transform: translateX(589px) translateY(664px) scale(1.9) !important;
+    opacity: 1 !important;
+    }
+    &.post-3{
+      transform: translateX(588px) translateY(725px) scale(2) !important;
+      opacity: 0.3 !important;
+    }
+    &.post-4{
+      transform: translateX(13px) scale(0);
+      opacity: 0;
+    }
+    &.post-0, &.post--1{
+      transform: translateX(-13px) scale(0);
+      opacity: 0;
+    }
+  }
 }

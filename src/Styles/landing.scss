@@ -23,12 +23,13 @@
   width: 100%;
   position: fixed;
 
+  transition: all ease .4s;
   img.logo {
     height: 38px;
   }
   &.ant-layout-header {
     padding: 37px 48px !important;
-    background: #7bd0ef !important;
+    background:  !important;
     height: unset !important;
   }
   &.white-nav {
@@ -49,7 +50,7 @@
     padding: 0px 58px;
   }
 }
-
+// background-image: url(/landing-page/first-screen-ellipse.png);
 .landing-page-container .section1 {
   padding-top: 227px;
   background: linear-gradient(180deg, #8dd6f5 0%, #2fbcd8 100%), #ffffff !important;

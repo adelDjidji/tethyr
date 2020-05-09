@@ -1,5 +1,5 @@
 import React, { useState, useEffect, createRef } from "react";
-import { Layout, Row, Col } from "antd";
+import { Layout, Row, Col, Drawer } from "antd";
 import * as Antd from "antd";
 import Carousel, { consts } from "react-elastic-carousel";
 import LandingNavbar from "../Components/Landing-page/LandingNavbar";
@@ -22,6 +22,7 @@ const LIMIT_IS_MOBILE = 500;
 export default function Landing() {
   const [navBarWhite, setnavBarWhite] = useState(false);
   const [isMobile, setisMobile] = useState(window.innerWidth < LIMIT_IS_MOBILE);
+  const [draweOpen, setdraweOpen] = useState(false);
   const Refcarousel = createRef();
   const Ref1 = createRef();
   const Ref2 = createRef();
@@ -88,52 +89,94 @@ export default function Landing() {
   };
 
   const scrollToPoint = (id) => {
-    let dest=0;
-    switch(id){
-      case 1: dest = Ref1
-      break;
-      case 2: dest = Ref2
-      break;
-      case 3: dest = Ref3
-      break;
-      case 4: dest = Ref4
-      break;
-      default: dest= 0;
+    let dest = 0;
+    switch (id) {
+      case 1:
+        dest = Ref1;
+        break;
+      case 2:
+        dest = Ref2;
+        break;
+      case 3:
+        dest = Ref3;
+        break;
+      case 4:
+        dest = Ref4;
+        break;
+      default:
+        dest = 0;
     }
     window.scrollTo({
       top: dest.current.offsetTop,
-      behavior: 'smooth'  
-  })
-  }
+      behavior: "smooth",
+    });
+    onCloseDrawer()
+  };
+  const openDrawer = () => {
+    setdraweOpen(true);
+  };
+  const onCloseDrawer = () => {
+    setdraweOpen(false);
+  };
   const LandingNavbar = () => {
-      return <Header className={`landing-nav-bar ${navBarWhite ? "white-nav" : ""}`}>
-      <Row>
-        <Col xs={6} sm={6} md={6} lg={4} xl={6}>
-          <img className="logo" src={logo} alt="logo tethyr" />
-        </Col>
-        <Col xs={0} sm={0} md={0} lg={11} xl={11}>
-          <b onClick={scrollToPoint.bind(this,1)} className="menu-item">Video</b>
-          <b onClick={scrollToPoint.bind(this,2)} className="menu-item">SlideShow</b>
-          <b onClick={scrollToPoint.bind(this,3)} className="menu-item">Features</b>
-          <b onClick={scrollToPoint.bind(this,4)} className="menu-item">Join now</b>
-        </Col>
-        <Col xs={0} sm={0} md={0} lg={9} xl={7} className="right">
-          <span className="btn-login">
-            <img src={login_icon} alt="" />
-          </span>
+    return (
+      <Header className={`landing-nav-bar ${navBarWhite ? "white-nav" : ""}`}>
+        <Drawer
+          title={<img style={{ width: '62%'}} className="logo" src={logo} alt="logo tethyr" />}
+          placement="left"
+          closable={false}
+          onClose={onCloseDrawer}
+          visible={draweOpen}
+        >
+          <p onClick={scrollToPoint.bind(this, 1)}>Video</p>
+          <p onClick={scrollToPoint.bind(this, 2)}>SlideShow</p>
+          <p onClick={scrollToPoint.bind(this, 3)}>Features</p>
+          <p onClick={scrollToPoint.bind(this, 4)}>Join now</p>
+        </Drawer>
+        <Row>
+          <Col xs={21} sm={21} md={21} lg={4} xl={6}>
+            <img className="logo" src={logo} alt="logo tethyr" />
+          </Col>
+          <Col xs={0} sm={0} md={0} lg={11} xl={11}>
+            <b onClick={scrollToPoint.bind(this, 1)} className="menu-item">
+              Video
+            </b>
+            <b onClick={scrollToPoint.bind(this, 2)} className="menu-item">
+              SlideShow
+            </b>
+            <b onClick={scrollToPoint.bind(this, 3)} className="menu-item">
+              Features
+            </b>
+            <b onClick={scrollToPoint.bind(this, 4)} className="menu-item">
+              Join now
+            </b>
+          </Col>
+          <Col xs={0} sm={0} md={0} lg={9} xl={7} className="right">
+            <span className="btn-login">
+              <img src={login_icon} alt="" />
+            </span>
 
-          <button className="yellow-btn">
-            <img src={signup} alt="" />
-          </button>
-        </Col>
-      </Row>
-    </Header>
-  }
+            <button className="yellow-btn">
+              <img src={signup} alt="" />
+            </button>
+          </Col>
+          <Col xs={3} sm={3} md={3} lg={0} xl={0}>
+            <Icon onClick={openDrawer} name="burger_menu" extention="svg" />
+          </Col>
+        </Row>
+      </Header>
+    );
+  };
   return (
     <div className="landing">
-      <LandingNavbar  />
+      <LandingNavbar />
       <div className="landing-page-container">
         <section className="section1">
+          <img
+            style={{ position: "absolute", top: 0, right: 0 }}
+            src="/landing-page/first-screen-ellipse.png"
+            alt=""
+          />
           <Row>
             <Col
               className="description"
@@ -167,10 +210,7 @@ export default function Landing() {
                 Tethyr's interface brings all of your favorites <br />
                 into one, convenient application.
               </p>
-              <button
-                style={{ marginTop: 21 }}
-                className="yellow-btn"
-              >
+              <button style={{ marginTop: 21 }} className="yellow-btn">
                 Join now for free <Antd.Icon type="right" />
               </button>
             </Col>
