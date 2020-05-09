@@ -6,6 +6,10 @@ import Author from "../Components/Author/Author";
 import AuthorCard from "../Components/AuthorCard/AuthorCard";
 import Caroussel from "../Components/Caroussel/Caroussel";
 import Toggle from "../Components/Toggle/Toggle";
+import Navbar from "../Components/Navbar/index";
+
+
+import "../Styles/App.min.css";
 
 const { Content } = Layout;
 
@@ -17,6 +21,8 @@ export default function Home() {
     setdarkMode(isDark)
   }
   return (
+    <>
+    <Navbar />
     <Content className={`container container-home ${darkMode?"":"white-mode"}`}>
       <Row >
         <Col xs={24} sm={24} md={24} lg={16} xl={18}>
@@ -133,5 +139,6 @@ export default function Home() {
         </Col>
       </Row>
     </Content>
+    </>
   );
 }
