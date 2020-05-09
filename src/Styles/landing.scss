@@ -60,7 +60,7 @@
   }
   .main-svg {
     position: absolute;
-    right: -5%;
+    right: 9%;
     width: 119%;
   }
   .ant-col:first-child {
@@ -117,45 +117,34 @@
   background-repeat: no-repeat;
   background-position-x: center;
 }
+
 .landing-page-container .section2 {
   padding-top: 219px;
   background: linear-gradient(
     180deg,
     #2fbcd7 2.49%,
-    rgba(255, 255, 255, 0) 100%
+    rgba(255, 255, 255, 1) 100%
   ) !important;
   padding-bottom: 135px;
   margin-top: -1px;
 }
-.mobile-view-screen {
-  background-image: url(/landing-page/slideShow2.png);
-  height: 157vh;
-  width: 23vw;
-  position: absolute;
-  top: 22vh;
-  left: 55px;
-  border-radius: 10px;
-  background-repeat: no-repeat;
-}
-.mobile-view {
-  background-image: url(/landing-page/phone-slider.png);
-  height: 100%;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  margin: 0 auto;
-  width: 363px;
-}
+
 .slideshow-btn {
   width: 57px;
   height: 57px;
   border: solid 1px #facc0c;
   margin: auto;
-  padding: 12pt;
+  padding: 12pt 14pt;
   border-radius: 50%;
   margin-top: 162%;
   cursor: pointer;
   transition: all ease 0.4s;
+  text-align: start;
+  &.left,
+  &.left-arrow {
+    float: right;
+    margin-right: 32px !important;
+  }
 }
 .slideshow-btn:hover {
   background-color: #facc0c;
@@ -168,10 +157,32 @@
     max-width: 100%;
   }
 }
+.landing {
+  background: white;
+}
+
+
 .section3 {
+  background-color: white;
   margin-bottom: 51px !important;
   .slideshow-col-right {
     margin-top: 120pt;
+    opacity: 0.3;
+    &.post-2{
+      transform: translateX(-345px) translateY(-3px) scale(1.1);
+      opacity: 1;
+    }
+    &.post-1{
+      transform: translateX(-693px) scale(1);
+    }
+    &.post-4,&.post-5{
+      transform: translateX(13px) scale(0);
+      opacity: 0;
+    }
+    &.post-0{
+      transform: translateX(-13px) scale(0);
+      opacity: 0;
+    }
   }
   .slideshow-col-center {
     margin: 0px 53px 0 41px;
@@ -179,8 +190,65 @@
   }
   .slideshow-col-left {
     margin-top: 120pt;
+    opacity: 0.3;
+    &.post-2{
+      transform: translateX(349px) translateY(0px) scale(1.12);
+      opacity: 1;
+    }
+    &.post-3{
+      transform: translateX(693px) scale(1);
+      opacity: 0.3;
+    }
+    &.post-4{
+      transform: translateX(13px) scale(0);
+      opacity: 0;
+    }
+    &.post-0, &.post--1{
+      transform: translateX(-13px) scale(0);
+      opacity: 0;
+    }
+  }
+  .mobile-view-screen {
+    // background-image: url(/landing-page/slideShow2.png);
+    // height: 157vh;
+    height: 75vh;
+    width: 18.8vw;
+    position: absolute;
+    top: 21vh;
+    left: 53px;
+    border-radius: 2px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    &.post-1{
+      transform: translateX(-349px) scale(0.9);
+      opacity: 0.3;
+    }
+    &.post-3{
+      transform: translateX(349px) scale(0.9);
+      opacity: 0.3;
+    }
+    &.post-4{
+      transform: translateX(13px) scale(0);
+      opacity: 0;
+    }
+    &.post-0{
+      transform: translateX(-13px) scale(0);
+      opacity: 0;
+    }
+  }
+  .mobile-view {
+    background-image: url(/landing-page/phone-slider.png);
+    height: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    width: 100%;
+    // width: 363px;
   }
 }
+
+
 .section5 {
   background-image: url(/landing-page/mambership-bg.jpg);
   background-size: cover;
@@ -240,8 +308,19 @@ footer.footer-landing .ant-row {
   max-height: 973px;
   background: #e1faff;
   padding-top: 113px;
-  item .ant-row {
-    padding: 42px 13px;
+  overflow: hidden;
+  .slideshow-btn.left-arrow {
+    margin-top: 275pt;
+    margin-left: 70px;
+  }
+  .slideshow-btn.right-arrow {
+    margin-top: 275pt;
+    margin-right: 70px;
+  }
+  item .item-row {
+    .item-col {
+      padding: 42px 13px;
+    }
     .feature-icon {
       background-color: #fefefe;
       border-radius: 50%;
@@ -252,20 +331,20 @@ footer.footer-landing .ant-row {
       box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1);
       margin-bottom: 20px;
     }
-    b{
+    b {
       color: black;
       font-size: 18px;
       line-height: 2;
     }
-    p{
+    p {
       color: #616161;
       font-size: 18px;
       line-height: 1;
-      padding: 0 33pt;
+      // padding: 0 33pt;
       margin-top: 17px;
     }
   }
 }
-.no-margin{
+.no-margin {
   margin: 0 !important;
 }

@@ -3,18 +3,20 @@ import { Layout, Row, Col } from "antd";
 import Carousel, { consts } from "react-elastic-carousel";
 import LandingNavbar from "../Components/Landing-page/LandingNavbar";
 import Icon from "../Components/Icon/Icon";
+import MobileCaroussel from "../Components/Landing-page/MobileCaroussel";
 
 import "../Styles/landing.scss";
 
 const main_svg = require("../Assets/landing-page/main-illustration.svg");
 const check = require("../Assets/landing-page/check.svg");
-
+const LIMIT_IS_MOBILE= 500
 export default function Landing() {
   const [navBarWhite, setnavBarWhite] = useState(false);
-  const [isMobile, setisMobile] = useState(window.innerWidth < 430);
-  const Caroussel = createRef()
+  const [isMobile, setisMobile] = useState(window.innerWidth < LIMIT_IS_MOBILE);
+  const Refcarousel = createRef()
 
   useEffect(() => {
+    setisMobile(window.innerWidth < LIMIT_IS_MOBILE)
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", updateDimensions.bind(this));
     return () => {
@@ -24,7 +26,7 @@ export default function Landing() {
   });
 
   const updateDimensions = () => {
-    if (window.innerWidth < 430) {
+    if (window.innerWidth <LIMIT_IS_MOBILE) {
       setisMobile(true);
     } else {
       setisMobile(false);
@@ -54,11 +56,11 @@ export default function Landing() {
   const customArrow = ({ type, onClick }) => {
     const arrow =
       type === consts.PREV ? (
-        <div className="slideshow-btn">
+        <div className="slideshow-btn left-arrow">
           <Icon name="shevrone_navigation_left_dark" extention="svg" />
         </div>
       ) : (
-        <div className="slideshow-btn">
+        <div className="slideshow-btn right-arrow">
           <Icon name="shevrone_navigation_right_dark" extention="svg" />
         </div>
       );
@@ -66,10 +68,10 @@ export default function Landing() {
   };
 
   const moveLeft = () => {
-    Carousel.current.slidePrev();
+    Refcarousel.current.slidePrev();
   };
   const moveRight = () => {
-    Carousel.current.slideNext();
+    Refcarousel.current.slideNext();
   };
 
   return (
@@ -83,8 +85,8 @@ export default function Landing() {
               xs={24}
               sm={24}
               md={12}
-              lg={10}
-              xl={10}
+              lg={12}
+              xl={12}
             >
               <h1 className="big-title sm-title1">
                 STREAM IT ALL TOGETHER IN ONE PLACE
@@ -152,46 +154,15 @@ export default function Landing() {
           <p className="title-description">
             Sign up to use these features now.
           </p>
-          <Row type="flex" justify="center">
-            <Col xs={0} sm={0} md={0} lg={3} xl={4}>
-              <div className="slideshow-btn slideshow-btn-lg">
-                <Icon name="shevrone_navigation_left_dark" extention="svg" />
-              </div>
-            </Col>
-            <Col xs={7} sm={7} md={7} lg={4} xl={4} className="slideshow-col-left">
-              <img src="/landing-page/slideShow1.png" alt="" />
-            </Col>
-            <Col xs={9} sm={9} md={9} lg={6} xl={6} className="slideshow-col-center">
-              <div className="mobile-view">
-                <div className="mobile-view-screen"></div>
-              </div>
-            </Col>
-            <Col xs={7} sm={7} md={7} lg={4} xl={4} className="slideshow-col-right">
-              <img src="/landing-page/slideShow3.png" alt="" />
-            </Col>
-            <Col xs={0} sm={0} md={0} lg={3} xl={4}>
-              <div className="slideshow-btn slideshow-btn-lg">
-                <Icon name="shevrone_navigation_right_dark" extention="svg" />
-              </div>
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={12} sm={12} md={12} lg={0} xl={0}>
-              <div className="slideshow-btn">
-                <Icon name="shevrone_navigation_left_dark" extention="svg" />
-              </div>
-            </Col>
-            <Col xs={12} sm={12} md={12} lg={0} xl={0}>
-              <div className="slideshow-btn">
-                <Icon name="shevrone_navigation_right_dark" extention="svg" />
-              </div>
-            </Col>
-          </Row>
+          
+
+
+          <MobileCaroussel />
         </section>
 
         <section className="section4">
           <Carousel
-            ref={Caroussel}
+            ref={Refcarousel}
             className={`slide-show-caroussel`}
             breakPoints={[{ itemsToShow: 1, itemsToScroll: 1 }]}
             showArrows={!isMobile}
@@ -203,8 +174,8 @@ export default function Landing() {
                 welcome to the future. watch the future
               </h1>
               <p className="title-description">premium interface</p>
-              <Row>
-                <Col xs={24} sm={24} md={24} lg={8} xl={8} className="center">
+              <Row className="item-row" type="flex" justify="space-between">
+                <Col xs={24} sm={24} md={24} lg={8} xl={6} className="center item-col">
                   <div className="feature-icon">
                     <img
                       src={require("../Assets/landing-page/features-icon-1.svg")}
@@ -220,7 +191,7 @@ export default function Landing() {
                     podcasts and web pages.
                   </p>
                 </Col>
-                <Col xs={24} sm={24} md={24} lg={8} xl={8} className="center">
+                <Col xs={24} sm={24} md={24} lg={8} xl={6} className="center item-col">
                   <div className="feature-icon">
                     {" "}
                     <img
@@ -237,7 +208,7 @@ export default function Landing() {
                     single-view displays.
                   </p>
                 </Col>
-                <Col xs={24} sm={24} md={24} lg={8} xl={8} className="center">
+                <Col xs={24} sm={24} md={24} lg={8} xl={6} className="center item-col">
                   <div className="feature-icon">
                     {" "}
                     <img
@@ -254,8 +225,8 @@ export default function Landing() {
                   </p>
                 </Col>
               </Row>
-              <Row>
-                <Col xs={24} sm={24} md={24} lg={8} xl={8} className="center">
+              <Row className="item-row" type="flex" justify="space-between">
+                <Col xs={24} sm={24} md={24} lg={8} xl={6} className="center item-col">
                   <div className="feature-icon">
                     <img
                       src={require("../Assets/landing-page/features-icon-4.svg")}
@@ -271,7 +242,7 @@ export default function Landing() {
                     users instantly and effortlessly.
                   </p>
                 </Col>
-                <Col xs={24} sm={24} md={24} lg={8} xl={8} className="center">
+                <Col xs={24} sm={24} md={24} lg={8} xl={6} className="center item-col">
                   <div className="feature-icon">
                     <img
                       src={require("../Assets/landing-page/features-icon-5.svg")}
@@ -286,7 +257,7 @@ export default function Landing() {
                     display - from mobile to desktop 4K.
                   </p>
                 </Col>
-                <Col xs={24} sm={24} md={24} lg={8} xl={8} className="center">
+                <Col xs={24} sm={24} md={24} lg={8} xl={6} className="center item-col">
                   <div className="feature-icon">
                     <img
                       src={require("../Assets/landing-page/features-icon-6.svg")}
@@ -309,7 +280,7 @@ export default function Landing() {
               </h1>
               <p className="title-description">premium interface</p>
               <Row>
-                <Col xs={24} sm={24} md={24} lg={8} xl={8} className="center">
+                <Col xs={24} sm={24} md={24} lg={8} xl={6} className="center item-col">
                   <div className="feature-icon">
                     {" "}
                     <img
@@ -326,7 +297,7 @@ export default function Landing() {
                     podcasts and web pages.
                   </p>
                 </Col>
-                <Col xs={24} sm={24} md={24} lg={8} xl={8} className="center">
+                <Col xs={24} sm={24} md={24} lg={8} xl={6} className="center item-col">
                   <div className="feature-icon">
                     {" "}
                     <img
@@ -343,7 +314,7 @@ export default function Landing() {
                     single-view displays.
                   </p>
                 </Col>
-                <Col xs={24} sm={24} md={24} lg={8} xl={8} className="center">
+                <Col xs={24} sm={24} md={24} lg={8} xl={6} className="center item-col">
                   <div className="feature-icon">
                     {" "}
                     <img
@@ -361,7 +332,7 @@ export default function Landing() {
                 </Col>
               </Row>
               <Row>
-                <Col xs={24} sm={24} md={24} lg={8} xl={8} className="center">
+                <Col xs={24} sm={24} md={24} lg={8} xl={6} className="center item-col">
                   <div className="feature-icon">
                     <img
                       src={require("../Assets/landing-page/features-icon-4.svg")}
@@ -377,7 +348,7 @@ export default function Landing() {
                     users instantly and effortlessly.
                   </p>
                 </Col>
-                <Col xs={24} sm={24} md={24} lg={8} xl={8} className="center">
+                <Col xs={24} sm={24} md={24} lg={8} xl={6} className="center item-col">
                   <div className="feature-icon">
                     <img
                       src={require("../Assets/landing-page/features-icon-5.svg")}
@@ -392,7 +363,7 @@ export default function Landing() {
                     display - from mobile to desktop 4K.
                   </p>
                 </Col>
-                <Col xs={24} sm={24} md={24} lg={8} xl={8} className="center">
+                <Col xs={24} sm={24} md={24} lg={8} xl={6} className="center item-col">
                   <div className="feature-icon">
                     <img
                       src={require("../Assets/landing-page/features-icon-6.svg")}
@@ -412,12 +383,12 @@ export default function Landing() {
           </Carousel>
         
           <Row type="flex" justify="center" className="bottom-navigation">
-          <Col xs={4} sm={4} md={4} lg={0} xl={0}>
-            <div className="slideshow-btn no-margin" onClick={moveLeft}>
+          <Col xs={4} sm={4} md={0} lg={0} xl={0}>
+            <div className="slideshow-btn no-margin left" onClick={moveLeft}>
               <Icon name="shevrone_navigation_left_dark" extention="svg" />
             </div>
           </Col>
-          <Col xs={4} sm={4} md={4} lg={0} xl={0}>
+          <Col xs={4} sm={4} md={0} lg={0} xl={0}>
             <div className="slideshow-btn no-margin" onClick={moveRight}>
               <Icon name="shevrone_navigation_right_dark" extention="svg" />
             </div>
