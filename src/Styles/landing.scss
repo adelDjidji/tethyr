@@ -19,7 +19,7 @@
   background: transparent !important;
   box-shadow: unset !important;
   height: 106px;
-  z-index: 3 !important;
+  z-index: 30 !important;
   width: 100%;
   position: fixed;
 
@@ -137,7 +137,7 @@
   margin: auto;
   padding: 12pt 14pt;
   border-radius: 50%;
-  margin-top: 162%;
+  // margin-top: 162%;
   cursor: pointer;
   transition: all ease 0.4s;
   text-align: start;
@@ -165,84 +165,38 @@
 .section3 {
   background-color: white;
   margin-bottom: 51px !important;
+  .slideshow-btn.slideshow-btn-lg{
+    margin-top: 19em;
+  }
   .slideshow-col-right {
-    margin-top: 120pt;
+    margin-top: 3em;
     opacity: 0.3;
-    &.post-2 {
-      transform: translateX(-345px) translateY(-3px) scale(1.1);
-      opacity: 1;
-    }
-    &.post-1 {
-      transform: translateX(-693px) scale(1);
-    }
-    &.post-4,
-    &.post-5 {
-      transform: translateX(13px) scale(0);
-      opacity: 0;
-    }
-    &.post-0 {
-      transform: translateX(-13px) scale(0);
-      opacity: 0;
-    }
   }
   .slideshow-col-center {
-    margin: 0px 53px 0 41px;
-    height: 117vh;
+    margin: 0px;
+    // height: 117vh;
   }
   .slideshow-col-left {
-    margin-top: 120pt;
+    margin-top: 3em;
     opacity: 0.3;
-    &.post-2 {
-      transform: translateX(349px) translateY(0px) scale(1.12);
-      opacity: 1;
-    }
-    &.post-3 {
-      transform: translateX(693px) scale(1);
-      opacity: 0.3;
-    }
-    &.post-4 {
-      transform: translateX(13px) scale(0);
-      opacity: 0;
-    }
-    &.post-0,
-    &.post--1 {
-      transform: translateX(-13px) scale(0);
-      opacity: 0;
-    }
+    
+  }
+  .mobile-view-{
+    z-index: 3;
+    position: absolute;
+    left: -4px;
   }
   .mobile-view-screen {
-    // background-image: url(/landing-page/slideShow2.png);
-    // height: 157vh;
-    height: 75vh;
-    width: 18.8vw;
-    position: absolute;
-    top: 21vh;
-    left: 53px;
     border-radius: 2px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    &.post-1 {
-      transform: translateX(-349px) scale(0.9);
-      opacity: 0.3;
-    }
-    &.post-3 {
-      transform: translateX(349px) scale(0.9);
-      opacity: 0.3;
-    }
-    &.post-4 {
-      transform: translateX(13px) scale(0);
-      opacity: 0;
-    }
-    &.post-0 {
-      transform: translateX(-13px) scale(0);
-      opacity: 0;
-    }
+    padding: 2em;
+    margin-top: 2em;
+
   }
   .mobile-view {
     background-image: url(/landing-page/phone-slider.png);
     height: 100%;
     background-size: contain;
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
     margin: 0 auto;
     width: 100%;
