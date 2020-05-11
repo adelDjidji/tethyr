@@ -6,10 +6,10 @@ export default function MobileCaroussel() {
 const [currentIndex, setcurrentIndex] = useState(2)
 
 const moveNext = () => {
-    (currentIndex<3) && setcurrentIndex(currentIndex+1) 
+  (currentIndex>1) && setcurrentIndex(currentIndex-1) 
 }
 const movePrev = () => {
-    (currentIndex>1) && setcurrentIndex(currentIndex-1) 
+  (currentIndex<3) && setcurrentIndex(currentIndex+1) 
 }
     return (
         <>

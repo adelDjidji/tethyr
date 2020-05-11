@@ -1,3 +1,4 @@
+
 /**
 * Mobile and tablet
 */
@@ -55,12 +56,12 @@
     margin: 0px 3px !important;
     height: 57vh !important;
     .mobile-view {
-      background-position: top;
+      background-position: top !important;
     }
     img.mobile-view-screen {
-      height: 192px !important;
-      width: 76% !important;
-      top: 10.4vh !important;
+      height: 168px !important;
+      width: 71% !important;
+      top: 4.4vh !important;
       left: 22px !important;
       border-radius: 0px;
       background-repeat: no-repeat;
@@ -138,6 +139,81 @@
     }
   }
 }
+
+/**
+* Galaxy S5
+**/
+@media (width: 360px){
+  .slideshow-col-center img.mobile-view-screen{
+    height: 25vh !important;
+    width: 74% !important;
+    top: 5vh !important;
+    left: 19px !important;
+  }
+  div.slideshow-col-left.post-2 {
+    transform: translateX(116px) translateY(-10px) scale(0.96) !important;
+    opacity: 1 !important;
+}
+div.slideshow-col-right.post-2 {
+  transform: translateX(-112px) translateY(-13px) scale(0.95) !important;
+  opacity: 1 !important;
+}
+}
+/**
+* Galaxy Pixel2 XL
+**/
+@media (width: 411px){
+  div.slideshow-col-center{
+    height: 36vh !important;
+  }
+  .slideshow-col-center img.mobile-view-screen {
+    height: 13em !important;
+    width: 76% !important;
+    top: 4.6vh !important;
+    left: 19px !important;
+}
+div.slideshow-col-right.post-2 {
+  transform: translateX(-128px) translateY(-6px) scale(0.95) !important;
+  opacity: 1 !important;
+}
+}
+/**
+* IPOD
+**/
+@media (width: 768px){
+  .landing .section3 .slideshow-col-center img.mobile-view-screen {
+    height: 373px !important;
+    width: 74% !important;
+    top: 7.5vh !important;
+    left: 43px !important;
+    border-radius: 0px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+}
+/**
+* IPhone X
+**/
+@media (width: 375px){
+  div.slideshow-col-center{
+    height: 36vh !important;
+  }
+  .slideshow-col-center img.mobile-view-screen {
+    height: 21vh !important;
+    width: 74% !important;
+    top: 4vh !important;
+    left: 19px !important;
+}
+div.slideshow-col-right.post-2 {
+  transform: translateX(-117px) translateY(-6px) scale(0.95) !important;
+  opacity: 1 !important;
+}
+div.slideshow-col-left.post-2 {
+  transform: translateX(124px) translateY(-1px) scale(1) !important;
+  opacity: 1 !important;
+}
+}
+
 
 /**
 Only tablet
