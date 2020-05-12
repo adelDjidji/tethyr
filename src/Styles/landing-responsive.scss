@@ -88,12 +88,28 @@
 
 
 /**
-* small Mobile
+* small Mobile 1 - xs
 **/
-@media (min-width: 318px) and (max-width: 361px){
+@media (min-width: 318px) and (max-width: 341px){
   .section3 .mobile-view-screen {
     padding: 1em !important;
     margin-top: 1em !important;
+}
+iframe.youtube-iframe {
+  padding: 0.5em 12vw 17em 12vw !important;
+}
+}
+
+/**
+* small Mobile 2 - sm
+**/
+@media (min-width: 342px) and (max-width: 361px){
+  .section3 .mobile-view-screen {
+    padding: 1em !important;
+    margin-top: 1em !important;
+}
+iframe.youtube-iframe {
+  padding: 0.5em 12vw 16em 13vw !important;
 }
 // .youtube-iframe{
 //   position: absolute;
@@ -118,20 +134,6 @@
 //   border: none;
 // }
 }
-/**
-* large Mobile
-**/
-@media (min-width: 412px) and (max-width: 480px){
-
-// .youtube-iframe{
-//   position: absolute;
-//   width: 75%;
-//   height: 29%;
-//   margin-top: 0.8em;
-//   margin-left: 3.7em;
-//   border: none;
-// }
-}
 
 
 /**
@@ -142,6 +144,9 @@
 
   //   height: 24% !important;
   // }
+  iframe.youtube-iframe {
+    padding: 0.8em 12vw 14em 12vw !important;
+  }
 
 }
 /**
@@ -151,14 +156,27 @@
 
 }
 /**
-* IPhone X
+* IPhone 6/7/8
 **/
 @media (width: 375px){
+
+iframe.youtube-iframe {
+  padding: 0.8em 12vw 15em 12vw !important;
+}
+}
+/**
+* IPhone X
+**/
+@media (width: 375px) and (height:812px){
   .section3 .mobile-view-screen {
     padding: 1.2em !important;
     margin-top: 1.2em !important;
 }
+iframe.youtube-iframe {
+  padding: 0.5em 12vw 15em 13vw !important;
 }
+}
+
 
 
 /**
@@ -180,7 +198,7 @@ Only tablet
     padding: 20px 52px !important;
   }
 
-  iframe{
+  iframe.youtube-iframe{
     background: url(/landing-page/laptop-video.png);
     padding: 1.5em 8.5em 4em 8.5em !important;
     background-size: contain;
@@ -193,12 +211,58 @@ Only tablet
   
 }
 
+@media (max-width: 890px) and (min-width: 870px) {
+  iframe.youtube-iframe {
+    padding: 1.5em 20vw 4em 20vw !important;
+  }
+}
+@media (max-width: 870px) and (min-width: 760px) {
+  iframe.youtube-iframe {
+    padding: 1.5em 15.5vw 4em 16vw !important;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 610px) {
+  iframe.youtube-iframe {
+    padding: 1em 12vw 8em 13vw !important;
+  }
+}
+
+
+
+/**
+* large Mobile
+**/
+@media (min-width: 412px) and (max-width: 480px){
+  iframe.youtube-iframe {
+    padding: 1em 12vw 12em 12vw !important;
+  }
+// .youtube-iframe{
+//   position: absolute;
+//   width: 75%;
+//   height: 29%;
+//   margin-top: 0.8em;
+//   margin-left: 3.7em;
+//   border: none;
+// }
+}
+
+
+/**
+* iphone 6/7
+**/
+@media (width: 414px) {
+  iframe.youtube-iframe {
+    padding: 0.6em 12vw 14em 12vw !important;
+  }
+}
+
+
 /**
 Laptop M
 */
 @media (max-width: 1420px) and (min-width: 1024px) {
   .landing {
-    
     .section3 .mobile-view-screen {
       padding: 2.6em !important;
       margin-top: 2em !important;
@@ -225,7 +289,7 @@ Laptop M
   .section4 {
     max-height: 973px;
   }
-  iframe{
+  iframe.youtube-iframe{
     background: url(/landing-page/laptop-video.png);
     padding: 1.5em 24vw 4em 24vw !important;
     background-size: contain;
