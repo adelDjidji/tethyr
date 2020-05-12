@@ -4,6 +4,9 @@
 */
 @media (max-width: 767px) {
   // 0 to 767
+  .landing-nav-bar.ant-layout-header:not(.white-nav){
+    // width: 84% !important;
+  }
   .landing-page-container .section1 {
     .ant-col:first-child {
       padding-left: 0px !important;
@@ -29,83 +32,8 @@
     font-size: 20px !important;
     padding: 0 64pt;
   }
+  
 
-  // div.slideshow-col-left {
-  //   margin-top: 26pt !important;
-  //   opacity: 0.3;
-  //   &.post-2 {
-  //     transform: translateX(138px) translateY(8px) scale(1) !important;
-  //     opacity: 1 !important;
-  //   }
-  //   &.post-3 {
-  //     transform: translateX(276px) scale(1) !important;
-  //     opacity: 0.3 !important;
-  //   }
-  //   &.post-4 {
-  //     transform: translateX(13px) scale(0) !important;
-  //     opacity: 0 !important;
-  //   }
-  //   &.post-0,
-  //   &.post--1 {
-  //     transform: translateX(-13px) scale(0) !important;
-  //     opacity: 0 !important;
-  //   }
-  // }
-
-  // .slideshow-col-center {
-  //   margin: 0px 3px !important;
-  //   height: 57vh !important;
-  //   .mobile-view {
-  //     background-position: top !important;
-  //   }
-  //   img.mobile-view-screen {
-  //     height: 168px !important;
-  //     width: 71% !important;
-  //     top: 4.4vh !important;
-  //     left: 22px !important;
-  //     border-radius: 0px;
-  //     background-repeat: no-repeat;
-  //     background-size: contain;
-  //     &.post-1 {
-  //       transform: translateX(-138px) scale(0.9) !important;
-  //       opacity: 0.3 !important;
-  //     }
-  //     &.post-3 {
-  //       transform: translateX(138px) scale(0.9) !important;
-  //       opacity: 0.3 !important;
-  //     }
-  //     &.post-4 {
-  //       transform: translateX(13px) scale(0) !important;
-  //       opacity: 0 !important;
-  //     }
-  //     &.post-0 {
-  //       transform: translateX(-13px) scale(0) !important;
-  //       opacity: 0 !important;
-  //     }
-  //   }
-  // }
-
-  // div.slideshow-col-right {
-  //   margin-top: 26pt !important;
-  //   opacity: 0.3;
-  //   &.post-2 {
-  //     transform: translateX(-132px) translateY(11px) scale(0.95) !important;
-  //     opacity: 1 !important;
-  //   }
-  //   &.post-1 {
-  //     transform: translateX(-276px) scale(1) !important;
-  //     opacity: 0.3 !important;
-  //   }
-  //   &.post-4,
-  //   &.post-5 {
-  //     transform: translateX(13px) scale(0) !important;
-  //     opacity: 0 !important;
-  //   }
-  //   &.post-0 {
-  //     transform: translateX(-13px) scale(0) !important;
-  //     opacity: 0 !important;
-  //   }
-  // }
 
   .section3 {
     // .ant-row:first-child{
@@ -122,7 +50,7 @@
     width: 350px !important;
     top: 0px !important;
   }
-  .section5 .card-price {
+  .section5 .card-col {
     margin-bottom: 30px;
   }
   footer.footer-landing .ant-row .ant-col {
@@ -130,7 +58,7 @@
   }
 
   section.section4 {
-    max-height: 1711pt !important;
+    // max-height: 1711pt !important;
     .rec-carousel {
       max-height: 1548pt !important;
     }
@@ -155,6 +83,7 @@
     padding: 1.3em !important;
     margin-top: 1em !important;
 }
+
 }
 
 
@@ -166,6 +95,42 @@
     padding: 1em !important;
     margin-top: 1em !important;
 }
+// .youtube-iframe{
+//   position: absolute;
+//   width: 76%;
+//   height: 28%;
+//   margin-top: 0.7em;
+//   margin-left: 2.9em;
+//   border: none;
+// }
+}
+/**
+* medium Mobile
+**/
+@media (min-width: 362px) and (max-width: 411px){
+
+// .youtube-iframe{
+//   position: absolute;
+//   width: 75%;
+//   height: 29%;
+//   margin-top: 0.8em;
+//   margin-left: 3.7em;
+//   border: none;
+// }
+}
+/**
+* large Mobile
+**/
+@media (min-width: 412px) and (max-width: 480px){
+
+// .youtube-iframe{
+//   position: absolute;
+//   width: 75%;
+//   height: 29%;
+//   margin-top: 0.8em;
+//   margin-left: 3.7em;
+//   border: none;
+// }
 }
 
 
@@ -173,6 +138,10 @@
 * Galaxy Pixel2 XL
 **/
 @media (width: 411px){
+  // .youtube-iframe{
+
+  //   height: 24% !important;
+  // }
 
 }
 /**
@@ -197,7 +166,7 @@ Only tablet
 */
 @media (min-width: 430px) and (max-width: 770px) {
   section.section4 {
-    max-height: 1636pt !important;
+    // max-height: 1636pt !important;
     .rec-carousel {
       max-height: 1498pt !important;
     }
@@ -211,6 +180,16 @@ Only tablet
     padding: 20px 52px !important;
   }
 
+  iframe{
+    background: url(/landing-page/laptop-video.png);
+    padding: 1.5em 8.5em 4em 8.5em !important;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
+    border: none;
+    width: 100%;
+    height: 29em;
+  }
   
 }
 
@@ -243,6 +222,19 @@ Laptop M
     }
     
   }
+  .section4 {
+    max-height: 973px;
+  }
+  iframe{
+    background: url(/landing-page/laptop-video.png);
+    padding: 1.5em 24vw 4em 24vw !important;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
+    border: none;
+    width: 100%;
+    height: 29em;
+  }
 }
 
 /***
@@ -255,6 +247,19 @@ Laptop M
 }
 .section3 .slideshow-col-left , .section3 .slideshow-col-right {
   margin-top: 8em !important;
+}
+.section4 {
+  max-height: 973px;
+}
+iframe{
+  background: url(/landing-page/laptop-video.png);
+  padding: 1.5em 32em 4em 32em;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top;
+  border: none;
+  width: 100%;
+  height: 29em;
 }
  
 }
@@ -269,4 +274,20 @@ Laptop 4K
   .slideshow-btn.slideshow-btn-lg{
     margin-top: 14em !important;
   }
+  .rec.rec-carousel {
+    max-height: 702pt;
+}
+img.main-svg {
+  height: 372pt;
+}
+iframe{
+  background: url(/landing-page/laptop-video.png);
+  padding: 1.5em 72.5em 4em 72.5em !important;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top;
+  border: none;
+  width: 100%;
+  height: 29em;
+}
 }

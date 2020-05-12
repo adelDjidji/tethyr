@@ -110,7 +110,7 @@ export default function Landing() {
       top: dest.current.offsetTop,
       behavior: "smooth",
     });
-    onCloseDrawer()
+    onCloseDrawer();
   };
   const openDrawer = () => {
     setdraweOpen(true);
@@ -122,7 +122,14 @@ export default function Landing() {
     return (
       <Header className={`landing-nav-bar ${navBarWhite ? "white-nav" : ""}`}>
         <Drawer
-          title={<img style={{ width: '62%'}} className="logo" src={logo} alt="logo tethyr" />}
+          title={
+            <img
+              style={{ width: "62%" }}
+              className="logo"
+              src={logo}
+              alt="logo tethyr"
+            />
+          }
           placement="left"
           closable={false}
           onClose={onCloseDrawer}
@@ -191,7 +198,7 @@ export default function Landing() {
               </h1>
               <p>
                 <img src={check} alt="" />
-                The future of multi-tasking is her. <br />
+                The future of multi-tasking is here. <br />
                 Keep doing everything you love to do, at once.
               </p>
               <p>
@@ -210,7 +217,11 @@ export default function Landing() {
                 Tethyr's interface brings all of your favorites <br />
                 into one, convenient application.
               </p>
-              <button style={{ marginTop: 21 }} className="yellow-btn">
+              <button
+                style={{ marginTop: 21 }}
+                className="yellow-btn"
+                data-aos="fade-up-right"
+              >
                 Join now for free <Antd.Icon type="right" />
               </button>
             </Col>
@@ -233,6 +244,7 @@ export default function Landing() {
                   className="main-svg"
                   src={main_svg}
                   alt="main illustration"
+                  data-aos="fade-down"
                 />
               }
             </Col>
@@ -240,14 +252,22 @@ export default function Landing() {
         </section>
 
         <section ref={Ref1} className="section2 center">
-          <h1 className="big-title center sm-title2">
-            all streaming media in one site
-          </h1>
-          <p className="title-description">Tethyr features video.</p>
-          <img src="/landing-page/laptop-video.png" alt="" />
+          <div data-aos="fade-down">
+            <h1 className="big-title center sm-title2">
+              all streaming media in one site
+            </h1>
+            <p className="title-description">Tethyr features video.</p>
+            <iframe
+              className="youtube-iframe"
+              src="https://www.youtube.com/embed/2I5OdBLbyyM"
+            ></iframe>
+            {
+              // <img src="/landing-page/laptop-video.png" alt="" />
+            }
+          </div>
         </section>
 
-        <section ref={Ref2} className="section3 center">
+        <section ref={Ref2} className="section3 center" data-aos="fade-down">
           <h1 className="big-title center sm-title2">product slideshow</h1>
           <p className="title-description">
             Sign up to use these features now.
@@ -284,8 +304,8 @@ export default function Landing() {
                     <b>Multi-Source Playlists</b>
                   </div>
                   <p>
-                    Create, Eedit, share and watch playlists featuring items
-                    from different platforms including streaming video sites,
+                    Create, Edit, share and watch playlists featuring items from
+                    different platforms including streaming video sites,
                     podcasts and web pages.
                   </p>
                 </Col>
@@ -399,8 +419,8 @@ export default function Landing() {
                     <b>Multi-Source Playlists</b>
                   </div>
                   <p>
-                    Create, Eedit, share and watch playlists featuring items
-                    from different platforms including streaming video sites,
+                    Create, Edit, share and watch playlists featuring items from
+                    different platforms including streaming video sites,
                     podcasts and web pages.
                   </p>
                 </Col>
@@ -514,8 +534,8 @@ export default function Landing() {
                     <b>Multi-Source Playlists</b>
                   </div>
                   <p>
-                    Create, Eedit, share and watch playlists featuring items
-                    from different platforms including streaming video sites,
+                    Create, Edit, share and watch playlists featuring items from
+                    different platforms including streaming video sites,
                     podcasts and web pages.
                   </p>
                 </Col>
@@ -635,45 +655,90 @@ export default function Landing() {
           </p>
 
           <Row type="flex" justify="center" style={{ marginTop: 70 }}>
-            <Col sm={24} md={7} lg={7} xl={7}>
-              <div className="card-price" style={{ float: "right" }}>
-                <h1 className="title">Free</h1>
-                <b className="price">$0/month</b>
-                <div className="features">
-                  <p>feature 1</p>
-                  <p>feature 1</p>
-                  <p>feature 1</p>
-                </div>
-                <div className="price-footer">
-                  <button className="yellow-btn">Join now</button>
-                </div>
-              </div>
-            </Col>
-            <Col sm={24} md={7} lg={7} xl={7}>
-              <div className="card-price middle">
+            <Col className="card-col" sm={24} md={7} lg={7} xl={7}>
+              <div
+                className="card-price"
+                style={{ float: "right" }}
+                data-aos="fade-up-left"
+              >
                 <h1 className="title">Verified</h1>
-                <b className="price">$0/month</b>
-                <div className="features">
-                  <p>feature 1</p>
-                  <p>feature 1</p>
-                  <p>feature 1</p>
+                <b className="price">$1 / month</b>
+                <div className="description">
+                  <p>
+                    {" "}
+                    <b>
+                      Prove you are are a real person and unlock features.{" "}
+                    </b>{" "}
+                  </p>
                 </div>
+                <div className="features">
+                  <p>
+                    <Icon name="feature_anchor" extention="svg" />
+                    Import Content
+                  </p>
+                  <p>
+                    <Icon name="feature_anchor" extention="svg" /> Link your
+                    external accounts
+                  </p>
+                  <p>
+                    <Icon name="feature_anchor" extention="svg" /> Buy and
+                    redeem ad credits{" "}
+                  </p>
+                </div>
+                <div className="price-footer">
+                  <button className="yellow-btn disabled">Coming soon !</button>
+                </div>
+              </div>
+            </Col>
+            <Col className="card-col" sm={24} md={7} lg={7} xl={7}>
+              <div className="card-price middle" data-aos="fade-up">
+                <h1 className="title">Free</h1>
+                <b className="price">$0 / month</b>
+                <div className="description">
+                  <p>
+                    {" "}
+                    <b>
+                      Tethyr is currently in Beta mode. All features and
+                      memberships are currently free.{" "}
+                    </b>{" "}
+                  </p>
+
+                  <p>
+                    {" "}
+                    <b>
+                      Join the Beta now to clam your username and use Tethyr
+                      now.{" "}
+                    </b>{" "}
+                  </p>
+                </div>
+                <div className="features"></div>
                 <div className="price-footer">
                   <button className="yellow-btn">Join now</button>
                 </div>
               </div>
             </Col>
-            <Col sm={24} md={7} lg={7} xl={7}>
-              <div className="card-price">
+            <Col className="card-col" sm={24} md={7} lg={7} xl={7}>
+              <div className="card-price" data-aos="fade-up-right">
                 <h1 className="title">Pro</h1>
-                <b className="price">$0/month</b>
+                <b className="price">$4 / month</b>
+                <p>
+                  {" "}
+                  <b>
+                    Designed for streamers and media professionals and Brands.{" "}
+                  </b>{" "}
+                </p>
                 <div className="features">
-                  <p>feature 1</p>
-                  <p>feature 1</p>
-                  <p>feature 1</p>
+                  <p>
+                    <Icon name="feature_anchor" extention="svg" /> Advanced
+                    interface & control options
+                  </p>
+                  <p>
+                    <Icon name="feature_anchor" extention="svg" /> Brand
+                    Management tools
+                  </p>
                 </div>
                 <div className="price-footer">
-                  <button className="yellow-btn">Join now</button>
+                  <button className="yellow-btn disabled">Coming soon !</button>
                 </div>
               </div>
             </Col>

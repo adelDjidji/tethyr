@@ -23,20 +23,23 @@
   width: 100%;
   position: fixed;
 
-  transition: all ease .4s;
+  transition: all ease 0.4s !important;
   img.logo {
     height: 38px;
   }
   &.ant-layout-header {
     padding: 37px 48px !important;
-    background:  !important;
+    background: transparent !important;
     height: unset !important;
+    transition: all ease 0.4s !important;
   }
   &.white-nav {
+    transition: all ease 0.4s !important;
     padding: 2px 48px !important;
     background: #fff !important;
     height: unset !important;
     box-shadow: 0px 3px 3px rgba(39, 47, 58, 0.2247) !important;
+    animation: fadeIn;
   }
 
   .menu-item {
@@ -95,7 +98,8 @@
 }
 .yellow-btn {
   background: #facc0c;
-  box-shadow: 0px 4px 4px rgba(11, 15, 98, 0.5);
+  // box-shadow: 0px 4px 4px rgba(11, 15, 98, 0.5);
+  box-shadow: 0px 4px 4px rgba(11, 15, 98, 0.2);
   border-radius: 5px;
   border: none;
   padding: 0px 31px;
@@ -105,8 +109,14 @@
   font-weight: bold;
   font-size: 16px;
   line-height: 17px;
+  &.disabled{
+    background: #cccccc !important;
+    font-style: italic;
+    padding: 0px 12px;
+    // width: 110%;
+  }
   &:hover {
-    box-shadow: 0px 3px 2px rgba(11, 15, 98, 0.5);
+    box-shadow: 0px 2px 2px rgba(11, 15, 98, 0.2);
   }
   img {
     vertical-align: baseline;
@@ -165,7 +175,7 @@
 .section3 {
   background-color: white;
   margin-bottom: 51px !important;
-  .slideshow-btn.slideshow-btn-lg{
+  .slideshow-btn.slideshow-btn-lg {
     margin-top: 19em;
   }
   .slideshow-col-right {
@@ -179,9 +189,8 @@
   .slideshow-col-left {
     margin-top: 3em;
     opacity: 0.3;
-    
   }
-  .mobile-view-{
+  .mobile-view- {
     z-index: 3;
     position: absolute;
     left: -4px;
@@ -190,7 +199,6 @@
     border-radius: 2px;
     padding: 2em;
     margin-top: 2em;
-
   }
   .mobile-view {
     background-image: url(/landing-page/phone-slider.png);
@@ -219,8 +227,9 @@
     box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     padding: 32px 109px;
+    height: 100% !important;
     &.middle {
-      height: 434px !important;
+      // height: 434px !important;
       width: 100%;
       position: relative;
       top: -21pt;
@@ -229,8 +238,9 @@
     .title {
       font-family: Rubik-regular;
       font-weight: bold;
-      font-size: 30px;
+      font-size: 40px;
       color: #010101;
+      line-height: 2;
     }
     .price {
       font-family: Rubik-regular;
@@ -240,6 +250,15 @@
     }
     .features {
       padding: 44px 0;
+      text-align: left;
+      .icon {
+        margin-bottom: 2px;
+        margin-right: 3pt;
+      }
+    }
+    .description {
+      color: black;
+      margin-top: 13pt;
     }
   }
 }
@@ -260,7 +279,7 @@ footer.footer-landing .ant-row {
   padding: 0 !important;
 }
 .section4 {
-  max-height: 973px;
+  // max-height: 973px;
   background: #e1faff;
   padding-top: 113px;
   overflow: hidden;
@@ -296,23 +315,23 @@ footer.footer-landing .ant-row {
       background-repeat: no-repeat;
       background-size: 60%;
       background-position: center;
-      &.bg-1{
+      &.bg-1 {
         background-image: url(/landing-page/features-icon-1.svg);
       }
-      &.bg-2{
+      &.bg-2 {
         background-image: url(/landing-page/features-icon-2.svg);
       }
-      &.bg-3{
+      &.bg-3 {
         background-image: url(/landing-page/features-icon-3.svg);
         background-size: 40%;
       }
-      &.bg-4{
+      &.bg-4 {
         background-image: url(/landing-page/features-icon-4.svg);
       }
-      &.bg-5{
+      &.bg-5 {
         background-image: url(/landing-page/features-icon-5.svg);
       }
-      &.bg-6{
+      &.bg-6 {
         background-image: url(/landing-page/features-icon-6.svg);
       }
     }
@@ -332,4 +351,14 @@ footer.footer-landing .ant-row {
 }
 .no-margin {
   margin: 0 !important;
+}
+iframe{
+  background: url(/landing-page/laptop-video.png);
+  padding: 1.5em 24vw 4em 24vw !important;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top;
+  border: none;
+  width: 100%;
+  height: 29em;
 }

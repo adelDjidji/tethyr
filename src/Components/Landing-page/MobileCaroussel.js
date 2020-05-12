@@ -2,19 +2,25 @@ import React, { useState, createRef, useEffect } from "react";
 import { Row, Col } from "antd";
 import Icon from "../Icon/Icon";
 
+const animation="fadeIn"
+const animation_exit="zoomOut"
+const animation_center="zoomIn"
+
 export default function MobileCaroussel() {
   const [currentIndex, setcurrentIndex] = useState(2);
+  const [direction, setdirection] = useState("")
   const image1 = createRef();
   const image2 = createRef();
   const image3 = createRef();
 
   const moveNext = () => {
     currentIndex < 3 && setcurrentIndex(currentIndex + 1);
+    setdirection("Right")
     
   };
   const movePrev = () => {
     currentIndex > 1 && setcurrentIndex(currentIndex - 1);
-    
+    setdirection("Left")
   };
   return (
     <>
@@ -32,11 +38,15 @@ export default function MobileCaroussel() {
           xl={4}
           className={`slideshow-col-left -post-${currentIndex - 1}`}
         >
+        
+          {currentIndex === 1 && (
+            <img className={"animate__animated animate__"+animation_exit} src="/landing-page/slideShow3.png" alt="" />
+          )}
           {currentIndex === 2 && (
-            <img src="/landing-page/slideShow1.png" alt="" />
+            <img className={"animate__animated animate__"+animation+direction} src="/landing-page/slideShow1.png" alt="" />
           )}
           {currentIndex === 3  && (
-            <img src="/landing-page/slideShow2.png" alt="" />
+            <img className={"animate__animated animate__"+animation+direction}  src="/landing-page/slideShow2.png" alt="" />
           )}
         </Col>
         <Col
@@ -45,11 +55,11 @@ export default function MobileCaroussel() {
           md={9}
           lg={6}
           xl={6}
-          className="slideshow-col-center"
+          className="slideshow-col-center animate__animated"
         >
-          {currentIndex === 1 && (<img className={`mobile-view-screen -post-${currentIndex}`} src="/landing-page/slideShow1.png" alt=""/>)}
-          {currentIndex === 2 && (<img className={`mobile-view-screen -post-${currentIndex}`} src="/landing-page/slideShow2.png" alt=""/>)}
-          {currentIndex === 3 && (<img className={`mobile-view-screen -post-${currentIndex}`} src="/landing-page/slideShow3.png" alt=""/>)}
+          {currentIndex === 1 && (<img className={`animate__animated animate__${animation_center} mobile-view-screen -post-${currentIndex}`} src="/landing-page/slideShow1.png" alt=""/>)}
+          {currentIndex === 2 && (<img className={`animate__animated animate__${animation_center} mobile-view-screen -post-${currentIndex}`} src="/landing-page/slideShow2.png" alt=""/>)}
+          {currentIndex === 3 && (<img className={`animate__animated animate__${animation_center} mobile-view-screen -post-${currentIndex}`} src="/landing-page/slideShow3.png" alt=""/>)}
           
           
           <img
@@ -69,8 +79,9 @@ export default function MobileCaroussel() {
           xl={4}
           className={`slideshow-col-right -post-${currentIndex + 1}`}
         >
-          { currentIndex === 1 && <img src="/landing-page/slideShow2.png" alt="" />}
-          { currentIndex === 2 && <img src="/landing-page/slideShow3.png" alt="" />}
+          { currentIndex === 1 && <img className={"animate__animated animate__"+animation+direction}  src="/landing-page/slideShow2.png" alt="" />}
+          { currentIndex === 2 && <img className={"animate__animated animate__"+animation+direction}  src="/landing-page/slideShow3.png" alt="" />}
+          { currentIndex === 3 && <img className={"animate__animated animate__"+animation_exit}  src="/landing-page/slideShow1.png" alt="" />}
         </Col>
         <Col xs={0} sm={0} md={0} lg={3} xl={4}>
           <div onClick={moveNext} className="slideshow-btn slideshow-btn-lg">
