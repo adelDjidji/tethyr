@@ -22,6 +22,10 @@
       right: 0% !important;
       width: 100% !important;
     }
+    .description p {
+      line-height: 20px !important;
+      padding: 0 12pt !important;
+  }
   }
 
   .sm-title1 {
@@ -59,6 +63,7 @@
 
   section.section4 {
     // max-height: 1711pt !important;
+    padding-bottom: 28pt !important;
     .rec-carousel {
       max-height: 1548pt !important;
     }
@@ -67,12 +72,16 @@
       padding-bottom: 40pt;
     }
   }
+  .video-frame {
+    width: 100% !important;
+    height: 207pt !important;
+  }
 }
 
 @media (max-width: 330px)
 {
   section.section4 .rec-carousel {
-    max-height: 1599pt !important;
+    max-height: 1640pt !important;
 }
 }
 
@@ -223,18 +232,7 @@ Only tablet
     height: 29em;
   }
   
-  
-
-  .slide-show-caroussel div.slideshow-btn.right-arrow{
-
-    margin-right: 14em !important;
-    margin-top: 12em !important;
-  }
-  .slide-show-caroussel div.slideshow-btn.left-arrow{
-    margin-left: 14em !important;
-    margin-top: 12em !important;
-    margin-right: unset !important;
-  }
+ 
 }
 
 @media (max-width: 890px) and (min-width: 870px) {
@@ -294,14 +292,23 @@ Laptop M
       margin-top: 2em !important;
   }
 
-  .section3 .slideshow-col-left, .section3 .slideshow-col-right {
-    margin-top: 7em !important;
-}
+//   .section3 .slideshow-col-left, .section3 .slideshow-col-right {
+//     margin-top: 7em !important;
+// } 
 
-    div.slideshow-btn {
-      // margin-top: 218%;
-      margin-top: 157%;
+   
+
+    .slide-show-caroussel {
+      .slideshow-btn.right-arrow {
+        margin-right: 15em !important;
+        margin-top: 114pt !important;
+      }
+      .slideshow-btn.left-arrow {
+        margin-left: 15em !important;
+        margin-top: 114pt !important;
+      }
     }
+
     .section5 .card-price {
       text-align: center;
       // width: 350px;
@@ -341,6 +348,16 @@ Laptop M
 * Desktop L
 */
 @media (max-width: 1540px) and (min-width: 1430px) {
+  .slide-show-caroussel {
+    .slideshow-btn.right-arrow {
+      margin-right: 15em !important;
+      margin-top: 139pt !important;
+    }
+    .slideshow-btn.left-arrow {
+      margin-left: 15em !important;
+      margin-top: 139pt !important;
+    }
+  }
   .section3 .mobile-view-screen {
     padding: 2em !important;
     margin-top: 4em !important;
@@ -351,7 +368,7 @@ Laptop M
 .section4 {
   max-height: 973px;
 }
-iframe{
+iframe.youtube-iframe{
   background: url(/landing-page/laptop-video.png);
   padding: 1.5em 32em 4em 32em;
   background-size: contain;
@@ -375,6 +392,17 @@ wide screen
   iframe.youtube-iframe{
     // padding: 1.5em 72.5em 4em 72.5em !important;
     padding: 1.5em 17.7vw 4em 18vw !important;
+  }
+
+  .slide-show-caroussel {
+    .slideshow-btn.right-arrow {
+      margin-right: 15em !important;
+      margin-top: 109pt !important;
+    }
+    .slideshow-btn.left-arrow {
+      margin-left: 15em !important;
+      margin-top: 109pt !important;
+    }
   }
 
 }
