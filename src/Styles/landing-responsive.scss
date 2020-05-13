@@ -63,6 +63,7 @@
       max-height: 1548pt !important;
     }
     .bottom-navigation {
+      margin-top: 45px !important;
       padding-bottom: 40pt;
     }
   }
@@ -201,13 +202,14 @@ Only tablet
       max-height: 1498pt !important;
     }
     .bottom-navigation {
+      margin-top: 45px !important;
       padding-bottom: 20pt;
     }
   }
   
   .section5 .card-price {
     // width: 262px !important;
-    padding: 20px 52px !important;
+    padding: 20px 21px !important;
   }
 
   iframe.youtube-iframe{
@@ -362,6 +364,23 @@ iframe{
  
 }
 /**
+wide screen
+*/
+@media (min-width: 1441px) {
+  .elipsis{
+    position: absolute;
+    top: 0;
+    right: 567px !important;
+  }
+  iframe.youtube-iframe{
+    // padding: 1.5em 72.5em 4em 72.5em !important;
+    padding: 1.5em 17.7vw 4em 18vw !important;
+  }
+
+}
+
+
+/**
 Laptop 4K
 */
 @media (min-width: 1900px) {
@@ -378,8 +397,5 @@ Laptop 4K
 img.main-svg {
   height: 372pt;
 }
-iframe.youtube-iframe{
-  padding: 1.5em 72.5em 4em 72.5em !important;
 
-}
 }

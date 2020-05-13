@@ -15,12 +15,19 @@
 .landing * {
   font-family: "karla-regular";
 }
+.landing{
+  max-width: 1440px !important;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
 .landing-nav-bar {
   background: transparent !important;
   box-shadow: unset !important;
   height: 106px;
   z-index: 30 !important;
   width: 100%;
+  max-width: 1440px !important; 
   position: fixed;
 
   transition: all ease 0.4s !important;
@@ -66,6 +73,11 @@
     position: absolute;
     right: 9%;
     width: 119%;
+  }
+  .elipsis{
+    position: absolute;
+    top: 0;
+    right: 0
   }
   .ant-col:first-child {
     padding-left: 143px;
@@ -165,7 +177,7 @@
 .section3 {
   img,
   .mobile-view {
-    max-width: 100%;
+    max-width: 76%;
   }
 }
 .landing {
@@ -210,6 +222,10 @@
     width: 100%;
     // width: 363px;
   }
+  .bottom-navigation {
+    margin-top: 45px !important;
+    padding-bottom: 40pt;
+  }
 }
 
 .section5 {
@@ -221,12 +237,12 @@
   padding-block-end: 90px;
   .card-price {
     text-align: center;
-    width: 350px;
+    // width: 350px;
     background: white;
     // height: 379px;
     box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    padding: 32px 109px;
+    padding: 32px 70px;
     height: 100% !important;
     &.middle {
       // height: 434px !important;
@@ -364,11 +380,11 @@ iframe{
 }
 .slide-show-caroussel{
   .slideshow-btn.right-arrow{
-    margin-right: 16em !important;
-    margin-top: 12em !important;
+    margin-right: 15em !important;
+    margin-top: 22em !important;
   }
   .slideshow-btn.left-arrow{
-    margin-left: 16em !important;
-    margin-top: 12em !important;
+    margin-left: 15em !important;
+    margin-top: 22em !important;
   }
 }

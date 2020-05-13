@@ -217,7 +217,7 @@ export default function Landing() {
         <div className="landing-page-container">
           <section className="section1">
             <img
-              style={{ position: "absolute", top: 0, right: 0 }}
+              className="elipsis"
               src="/landing-page/first-screen-ellipse.png"
               alt=""
             />
@@ -319,19 +319,19 @@ export default function Landing() {
             >
               <item>
                 {" "}
-                <img src="/landing-page/slideShow1.png" alt="" />{" "}
+                <img src="/landing-page/slideShow1.jpg" alt="" />{" "}
               </item>
               <item>
                 {" "}
                 <img
-                  style={{ height: "94%" }}
-                  src="/landing-page/slideShow2.png"
+                  style={{ height: "100%", width:'100%' }}
+                  src="/landing-page/slideShow2.jpg"
                   alt=""
                 />{" "}
               </item>
               <item>
                 {" "}
-                <img src="/landing-page/slideShow3.png" alt="" />{" "}
+                <img src="/landing-page/slideShow3.jpg" alt="" />{" "}
               </item>
             </Carousel>
             <Row type="flex" justify="center" className="bottom-navigation">
@@ -740,7 +740,7 @@ export default function Landing() {
               <Col className="card-col" sm={24} md={7} lg={7} xl={7}>
                 <div
                   className="card-price"
-                  style={{ float: "right" }}
+                  // style={{ float: "right" }}
                   data-aos="fade-up-left"
                 >
                   <h1 className="title">Verified</h1>
