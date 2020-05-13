@@ -48,10 +48,20 @@ export default function Landing() {
     }
   };
 
+  const nextSectionOffset = (currentoffset) => {
+    if(currentoffset<760 && currentoffset >700) return 1440;
+    // if(currentoffset<1480 && currentoffset >1450) return 2150;
+    // if(currentoffset<2220 && currentoffset >2170) return 3010;
+    // else return 4000;
+  }
+  const FIRST_SECTION_OFFSET= 720;
+  const SECOND_SECTION_OFFSET= 1400;
+  const THIRD_SECTION_OFFSET= 2100;
+  const FOURTH_SECTION_OFFSET= 3000;
   var lastScrollTop = 0;
   const handleScroll = (e) => {
+    e.preventDefault()
     console.log("e =", e.target.scrollingElement.scrollTop);
-
     const currentScrollTop = e.target.scrollingElement.scrollTop;
 
     if (currentScrollTop > lastScrollTop) {
@@ -59,11 +69,30 @@ export default function Landing() {
       if (currentScrollTop >= 90 && !navBarWhite) {
         setnavBarWhite(true);
       }
+      if(currentScrollTop<FIRST_SECTION_OFFSET && currentScrollTop>FIRST_SECTION_OFFSET-600 )window.scrollTo({
+        top: FIRST_SECTION_OFFSET,
+        // behavior: "smooth",
+      })
+      else if(currentScrollTop<SECOND_SECTION_OFFSET && currentScrollTop > SECOND_SECTION_OFFSET-400)window.scrollTo({
+        top: SECOND_SECTION_OFFSET,
+        // behavior: "smooth",
+      })
+      else if(currentScrollTop<THIRD_SECTION_OFFSET && currentScrollTop>THIRD_SECTION_OFFSET-500)window.scrollTo({
+        top: THIRD_SECTION_OFFSET,
+        // behavior: "smooth",
+      })
+      else if(currentScrollTop<FOURTH_SECTION_OFFSET && currentScrollTop>FOURTH_SECTION_OFFSET-400)window.scrollTo({
+        top: FOURTH_SECTION_OFFSET,
+        // behavior: "smooth",
+      })
+
+
     } else {
       console.log("Going UP");
       if (currentScrollTop <= 90 && navBarWhite) {
         setnavBarWhite(false);
       }
+      
     }
     lastScrollTop = currentScrollTop;
   };
