@@ -273,8 +273,8 @@ export default function Landing() {
                 <h1 className="big-title sm-title1">
                   Tethyr All Your Content Together
                 </h1>
-                <h3>
-                  <b>Everything you love to do in one dynamic container.</b>{" "}
+                <h3 className="sub-title">
+                  Everything you love to do in one dynamic container.
                 </h3>
                 <p>
                   <img src={check} alt="" />
@@ -371,7 +371,7 @@ export default function Landing() {
               <item>
                 {" "}
                 <img
-                  style={{ height: "100%", width: "100%" }}
+                  // style={{ height: "100%", width: "100%" }}
                   src="/landing-page/slideShow2-sm.jpg"
                   alt=""
                 />{" "}
@@ -848,11 +848,14 @@ export default function Landing() {
                 <div className="card-price" data-aos="fade-up-right">
                   <h1 className="title">Pro</h1>
                   <b className="price">$4 / month</b>
+                  <div className="description">
                   <p>
-                    <b>
-                      Designed for streamers and media professionals and Brands.{" "}
-                    </b>
-                  </p>
+                  <b>
+                    Designed for streamers and media professionals and Brands.{" "}
+                  </b>
+                </p>
+                  </div>
+                 
                   <div className="features">
                   <ul>
                   <li>Advanced interface & control options</li>
@@ -871,6 +874,9 @@ export default function Landing() {
           </section>
 
           <footer className="footer-landing">
+          <Row>
+          <iframe className="mail-list" src="https://cdn.forms-content.sg-form.com/a37ccb45-1062-11ea-8b84-7e3f42cb575b"/>
+          </Row>
             <Row>
               <Col className="center" xs={24} sm={24} ms={24} lg={8} xl={8}>
                 <img src="/landing-page/logo-footer.png" alt="" />

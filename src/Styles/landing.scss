@@ -68,6 +68,10 @@
   padding-top: 227px;
   background: linear-gradient(180deg, #8dd6f5 0%, #2fbcd8 100%), #ffffff !important;
   padding-bottom: 120px;
+  .sub-title{
+    margin-bottom: 1em !important;
+    font-weight: bold;
+  }
   .main-svg img {
     position: absolute;
     right: 138px;
@@ -84,16 +88,17 @@
   }
   .ant-col:first-child {
     padding-left: 143px;
+    z-index: 2;
   }
   .description p {
     font-weight: bold;
-    font-size: 14px;
-    line-height: 14px;
+    font-size: 0.87em;
+    line-height: 1.5em;
     color: #4d4d4d;
     img {
       position: absolute;
       left: 108px;
-      margin-top: 12px;
+      margin-top: -3px;
     }
   }
 }
@@ -146,7 +151,7 @@
 }
 
 .landing-page-container .section2 {
-  padding-top: 219px;
+  padding-top: 119px;
   background: linear-gradient(
     180deg,
     #2fbcd7 2.49%,
@@ -301,6 +306,7 @@ footer.footer-landing .ant-row {
   background: #e1faff;
   padding-top: 113px;
   overflow: hidden;
+  margin-top: -1px;
   .slideshow-btn.left-arrow {
     margin-top: 275pt;
     margin-left: 70px;
@@ -407,4 +413,12 @@ iframe.youtube-iframe {
     background-position: right;
     background-repeat: no-repeat;
     background-size: contain;
+}
+iframe.mail-list{
+  height: 321pt;
+  width: 100%;
+  border: none;
+  html body{
+    overflow: hidden !important;
+  }
 }

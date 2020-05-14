@@ -33,8 +33,8 @@
     padding: 0 34pt;
   }
   .sm-title2 {
-    font-size: 20px !important;
-    padding: 0 64pt;
+    font-size: 1.6em !important;
+    padding: 0 32pt;
   }
   
 
@@ -75,6 +75,14 @@
   .video-frame {
     width: 100% !important;
     height: 207pt !important;
+  }
+  .landing-page-container .section1 {
+    padding-top: 144px !important;
+  }
+  .title-description {
+    font-size: 1.1em !important;
+    font-weight: 900;
+    line-height: 2 !important;
   }
 }
 
@@ -170,6 +178,17 @@ iframe.youtube-iframe {
 * IPOD
 **/
 @media (width: 768px){
+
+  .slide-show-caroussel {
+    .slideshow-btn.right-arrow {
+      margin-right: 15em !important;
+      margin-top: 4em !important;
+    }
+    .slideshow-btn.left-arrow {
+      margin-left: 15em !important;
+      margin-top: 4em !important;
+    }
+  }
 
 }
 /**
@@ -384,6 +403,16 @@ iframe.youtube-iframe{
 wide screen
 */
 @media (min-width: 1441px) {
+  .landing-page-container .section1 {
+    .description p {
+    font-size: 1.2em !important;
+    line-height: 1.5em !important;
+}
+.sub-title{
+  font-size: 1.4em !important;
+}
+
+  }
   .elipsis{
     position: absolute;
     top: 0;
@@ -404,6 +433,9 @@ wide screen
       margin-top: 109pt !important;
     }
   }
+  .landing-page-container .section1 .description p img {
+    margin-top: 5px !important;
+}
 
 }
 
