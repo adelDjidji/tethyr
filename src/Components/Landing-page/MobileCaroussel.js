@@ -1,4 +1,4 @@
-import React, { useState, createRef, useEffect } from "react";
+import React, { useState, createRef } from "react";
 import { Row, Col } from "antd";
 import Icon from "../Icon/Icon";
 
@@ -9,9 +9,7 @@ const animation_center="zoomIn"
 export default function MobileCaroussel() {
   const [currentIndex, setcurrentIndex] = useState(2);
   const [direction, setdirection] = useState("")
-  const image1 = createRef();
-  const image2 = createRef();
-  const image3 = createRef();
+  
 
   const moveNext = () => {
     currentIndex < 3 && setcurrentIndex(currentIndex + 1);

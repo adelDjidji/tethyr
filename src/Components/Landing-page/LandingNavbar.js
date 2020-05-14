@@ -1,6 +1,5 @@
-import React, { useState, useEffect, createRef } from "react";
+import React from "react";
 import { Layout, Row, Col } from "antd";
-import Icon from "../Icon/Icon";
 
 import logo from "../../Assets/images/logo.png";
 import login_icon from "../../Assets/landing-page/Login.svg";

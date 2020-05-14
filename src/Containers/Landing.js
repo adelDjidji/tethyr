@@ -2,9 +2,7 @@ import React, { useState, useEffect, createRef } from "react";
 import { Layout, Row, Col, Drawer } from "antd";
 import * as Antd from "antd";
 import Carousel, { consts } from "react-elastic-carousel";
-import LandingNavbar from "../Components/Landing-page/LandingNavbar";
 import Icon from "../Components/Icon/Icon";
-import MobileCaroussel from "../Components/Landing-page/MobileCaroussel";
 
 import "../Styles/landing.scss";
 
@@ -336,6 +334,7 @@ export default function Landing() {
               </h1>
               <p className="title-description">Tethyr features video.</p>
               <iframe
+              title="youtube frame"
                 className="video-frame"
                 src="https://www.youtube.com/embed/2I5OdBLbyyM?autoplay=0"
               ></iframe>
@@ -875,7 +874,7 @@ export default function Landing() {
 
           <footer className="footer-landing">
           <Row>
-          <iframe className="mail-list" src="https://cdn.forms-content.sg-form.com/a37ccb45-1062-11ea-8b84-7e3f42cb575b"/>
+          <iframe title="mail list" className="mail-list" src="https://cdn.forms-content.sg-form.com/a37ccb45-1062-11ea-8b84-7e3f42cb575b"/>
           </Row>
             <Row>
               <Col className="center" xs={24} sm={24} ms={24} lg={8} xl={8}>
