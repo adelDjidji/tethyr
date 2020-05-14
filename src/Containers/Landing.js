@@ -362,6 +362,7 @@ export default function Landing() {
               pagination={false}
               renderArrow={customArrow}
               transitionMs={300}
+              enableSwipe={false}
             >
               <item>
                 {" "}
@@ -409,6 +410,7 @@ export default function Landing() {
               showArrows={false}
               pagination={false}
               renderArrow={customArrow}
+              enableSwipe={false}
             >
               <item>
                 <h1 className="big-title center sm-title2 no-padding">
