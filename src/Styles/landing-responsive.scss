@@ -96,8 +96,10 @@
 /**
 * Galaxy S5
 **/
-@media (width: 360px){
-
+@media (width: 600px){
+  .main-svg-bg{
+    height: 14em;
+  }
 }
 
 /**
@@ -189,6 +191,10 @@ iframe.youtube-iframe {
       margin-top: 4em !important;
     }
   }
+  .section3{
+    max-height: 347pt;
+  }
+  
 
 }
 /**

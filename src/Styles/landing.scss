@@ -105,7 +105,7 @@
 .big-title {
   font-weight: bold;
   font-size: 35px;
-  line-height: 1;
+  line-height: 1.3;
   text-transform: capitalize;
   font-family: rubik-bold;
   color: #010101;
@@ -317,7 +317,7 @@ footer.footer-landing .ant-row {
   }
   item .item-row {
     .item-col {
-      padding: 42px 13px;
+      padding: 34px 13px;
       &:hover {
         transform: translateY(-6px);
         .feature-icon {
@@ -367,7 +367,7 @@ footer.footer-landing .ant-row {
     p {
       color: #616161;
       font-size: 18px;
-      line-height: 1;
+      line-height: 1.2;
       // padding: 0 33pt;
       margin-top: 17px;
     }
