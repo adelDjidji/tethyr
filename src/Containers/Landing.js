@@ -814,7 +814,7 @@ export default function Landing() {
                   </div>
                   <div className="price-footer">
                     <button className="yellow-btn disabled">
-                      Coming soon !
+                      Coming soon!
                     </button>
                   </div>
                 </div>
@@ -864,7 +864,7 @@ export default function Landing() {
                   </div>
                   <div className="price-footer">
                     <button className="yellow-btn disabled">
-                      Coming soon !
+                      Coming soon!
                     </button>
                   </div>
                 </div>
