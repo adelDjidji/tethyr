@@ -4,6 +4,8 @@ export const counterSlice = createSlice({
   name: 'main',
   initialState: {
     value: 0,
+    currentListType:"PLG",
+    currentlistData:[]
   },
   reducers: {
     increment: state => {

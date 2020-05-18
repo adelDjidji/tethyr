@@ -68,6 +68,9 @@ div, body, section{
 .icon{
     max-height: 22px;
 }
+.icon.small{
+    max-height: 12px;
+}
 .btn-small img.icon {
     height: 12.7px;
     vertical-align: middle;
@@ -124,4 +127,10 @@ span.hashtag {
 }
 .middle{
     vertical-align: middle !important;
+}
+div.inline{
+    display: inline !important;
+}
+.inverse-direction{
+    transform: rotate(180deg) !important;
 }
