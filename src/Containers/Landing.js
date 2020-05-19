@@ -783,10 +783,10 @@ export default function Landing() {
 
           <section ref={Ref4} className="section5">
             <h1 className="big-title center white sm-title2">
-              membership title here
+            Membership Tiers
             </h1>
             <p className="title-description white">
-              <b>Premium interface</b>{" "}
+              <b>Join now for free</b>
             </p>
 
             <Row type="flex" justify="center" style={{ marginTop: 70 }}>
