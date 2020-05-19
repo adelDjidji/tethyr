@@ -1,9 +1,11 @@
 import React, { useState, useEffect, createRef } from "react";
 import { Layout, Row, Col, Drawer } from "antd";
 import * as Antd from "antd";
+import Lightbox from "react-image-lightbox";
 import Carousel, { consts } from "react-elastic-carousel";
 import Icon from "../Components/Icon/Icon";
 
+import "react-image-lightbox/style.css"; // This only needs to be imported once in your app
 import "../Styles/landing.scss";
 
 import logo from "../Assets/images/logo.png";
@@ -22,11 +24,20 @@ const SECOND_SECTION_OFFSET = 1400;
 const THIRD_SECTION_OFFSET = 2100;
 const FOURTH_SECTION_OFFSET = 3000;
 
+const images = [
+  "/landing-page/slideShow1-sm.jpg",
+  "/landing-page/slideShow2-sm.jpg",
+  "/landing-page/slideShow3-sm.jpg",
+];
 export default function Landing() {
   const [navBarWhite, setnavBarWhite] = useState(false);
   const [isMobile, setisMobile] = useState(window.innerWidth < LIMIT_IS_MOBILE);
   const [draweOpen, setdraweOpen] = useState(false);
-  const [indexSlideshow, setindexSlideshow] = useState(1)
+  const [indexSlideshow, setindexSlideshow] = useState(1);
+  const [lightBoxState, setlightBoxState] = useState({
+    photoIndex: 0,
+    isOpen: false,
+  });
   const Refcarousel = createRef();
   const Refcarousel2 = createRef();
   const Ref1 = createRef();
@@ -35,9 +46,7 @@ export default function Landing() {
   const Ref4 = createRef();
 
   useEffect(() => {
-    console.log(
-      "inner width = ", window.innerWidth
-    )
+    console.log("inner width = ", window.innerWidth);
     setisMobile(window.innerWidth < LIMIT_IS_MOBILE);
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", updateDimensions.bind(this));
@@ -127,20 +136,21 @@ export default function Landing() {
           <Icon name="shevrone_navigation_right_dark" extention="svg" />
         </div>
       );
-      var offset = type === consts.PREV  ? -1 : 1 ;
-      offset= parseInt(offset)
-      const handleClick = () => {
-        console.log("offset = ", offset)
-        console.log("index = = ", indexSlideshow+offset)
-       
-        if(indexSlideshow+offset===4) {
-          Refcarousel2.current.goTo(0)
-          setindexSlideshow(1)
-        }else{
-          if(indexSlideshow+offset>0) setindexSlideshow(indexSlideshow+offset)
-          onClick()
-        }
+    var offset = type === consts.PREV ? -1 : 1;
+    offset = parseInt(offset);
+    const handleClick = () => {
+      console.log("offset = ", offset);
+      console.log("index = = ", indexSlideshow + offset);
+
+      if (indexSlideshow + offset === 4) {
+        Refcarousel2.current.goTo(0);
+        setindexSlideshow(1);
+      } else {
+        if (indexSlideshow + offset > 0)
+          setindexSlideshow(indexSlideshow + offset);
+        onClick();
       }
+    };
     return <span onClick={handleClick}>{arrow}</span>;
   };
 
@@ -154,15 +164,14 @@ export default function Landing() {
     Refcarousel2.current.slidePrev();
   };
   const moveRight2 = () => {
-    console.log("mmmm",indexSlideshow+1)
-    if(indexSlideshow+1===4) {
-      Refcarousel2.current.goTo(0)
-      setindexSlideshow(1)
-    }else{
+    console.log("mmmm", indexSlideshow + 1);
+    if (indexSlideshow + 1 === 4) {
+      Refcarousel2.current.goTo(0);
+      setindexSlideshow(1);
+    } else {
       Refcarousel2.current.slideNext();
-      setindexSlideshow(indexSlideshow+1)
+      setindexSlideshow(indexSlideshow + 1);
     }
-    
   };
 
   const scrollToPoint = (id) => {
@@ -257,7 +266,7 @@ export default function Landing() {
       <Content>
         <div className="landing-page-container">
           <section className="section1">
-          <div className="img-top-right"></div>
+            <div className="img-top-right"></div>
 
             <Row>
               <Col
@@ -334,7 +343,7 @@ export default function Landing() {
               </h1>
               <p className="title-description">Tethyr features video.</p>
               <iframe
-              title="youtube frame"
+                title="youtube frame"
                 className="video-frame"
                 src="https://www.youtube.com/embed/2I5OdBLbyyM?autoplay=0"
               ></iframe>
@@ -352,6 +361,37 @@ export default function Landing() {
             <p className="title-description">
               Sign up to use these features now.
             </p>
+            
+            {lightBoxState.isOpen && (
+              <Lightbox
+                mainSrc={images[lightBoxState.photoIndex]}
+                nextSrc={images[(lightBoxState.photoIndex + 1) % images.length]}
+                prevSrc={
+                  images[
+                    (lightBoxState.photoIndex + images.length - 1) %
+                      images.length
+                  ]
+                }
+                onCloseRequest={() =>
+                  setlightBoxState({ ...lightBoxState, isOpen: false })
+                }
+                onMovePrevRequest={() =>
+                  setlightBoxState({
+                    ...lightBoxState,
+                    photoIndex:
+                      (lightBoxState.photoIndex + images.length - 1) %
+                      images.length
+                  })
+                }
+                onMoveNextRequest={() =>
+                  setlightBoxState({
+                    ...lightBoxState,
+                    photoIndex:
+                    (lightBoxState.photoIndex + 1) % images.length
+                  })
+                }
+              />
+            )}
             <Carousel
               data-aos="fade-down"
               ref={Refcarousel2}
@@ -363,21 +403,17 @@ export default function Landing() {
               transitionMs={300}
               enableSwipe={false}
             >
-              <item>
-                {" "}
-                <img src="/landing-page/slideShow1-sm.jpg" alt="" />{" "}
+              <item onClick={() => setlightBoxState({photoIndex:0, isOpen: true }) }>
+                <img src="/landing-page/slideShow1-sm.jpg" alt="" />
               </item>
-              <item>
-                {" "}
+              <item onClick={() => setlightBoxState({photoIndex:1, isOpen: true }) }>
                 <img
-                  // style={{ height: "100%", width: "100%" }}
                   src="/landing-page/slideShow2-sm.jpg"
                   alt=""
-                />{" "}
+                />
               </item>
-              <item>
-                {" "}
-                <img src="/landing-page/slideShow3-sm.jpg" alt="" />{" "}
+              <item onClick={() => setlightBoxState({photoIndex:2, isOpen: true }) }>
+                <img src="/landing-page/slideShow3-sm.jpg" alt="" />
               </item>
             </Carousel>
             <Row type="flex" justify="center" className="bottom-navigation">
@@ -783,7 +819,7 @@ export default function Landing() {
 
           <section ref={Ref4} className="section5">
             <h1 className="big-title center white sm-title2">
-            Membership Tiers
+              Membership Tiers
             </h1>
             <p className="title-description white">
               <b>Join now for free</b>
@@ -848,19 +884,19 @@ export default function Landing() {
                   <h1 className="title">Pro</h1>
                   <b className="price">$4 / month</b>
                   <div className="description">
-                  <p>
-                  <b>
-                    Designed for streamers and media professionals and Brands.{" "}
-                  </b>
-                </p>
+                    <p>
+                      <b>
+                        Designed for streamers and media professionals and
+                        Brands.
+                      </b>
+                    </p>
                   </div>
-                 
+
                   <div className="features">
-                  <ul>
-                  <li>Advanced interface & control options</li>
-                  <li>Brand Management tools</li>
-                  </ul>
-                    
+                    <ul>
+                      <li>Advanced interface & control options</li>
+                      <li>Brand Management tools</li>
+                    </ul>
                   </div>
                   <div className="price-footer">
                     <button className="yellow-btn disabled">
@@ -873,9 +909,13 @@ export default function Landing() {
           </section>
 
           <footer className="footer-landing">
-          <Row>
-          <iframe title="mail list" className="mail-list" src="https://cdn.forms-content.sg-form.com/a37ccb45-1062-11ea-8b84-7e3f42cb575b"/>
-          </Row>
+            <Row>
+              <iframe
+                title="mail list"
+                className="mail-list"
+                src="https://cdn.forms-content.sg-form.com/a37ccb45-1062-11ea-8b84-7e3f42cb575b"
+              />
+            </Row>
             <Row>
               <Col className="center" xs={24} sm={24} ms={24} lg={8} xl={8}>
                 <img src="/landing-page/logo-footer.png" alt="" />
